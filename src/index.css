@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+
+/* styles menu core*/
+.menu-123-item {
+    height: 30px;
+    width: 200px;
+    cursor: pointer;
+}
+.menu-123-item:hover{
+
+    background: #fafaf7;
+}
+.menu-123-item:active{
+    background: #d5d2d2;
+}
+/*style disabled menu*/
+div[disabled]
+{
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* override text */
+.t-over{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+/*style panel popup submenu*/
+.popup-123{
+    border: 1px solid #757474;
+    width: min-content;
+    background: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+    height: 100%;
+    position: relative;
 }
+
+/*contents*/
+.content-123-left-10{
+    text-align: center;
+    width: 10%;
+}
+.content-123-center-80{
+    width: 80%;
+}
+.content-123-right-10{
+    text-align: center;
+    width: 10%;
+}
+.content-123-center-100{
+ width: 100%;
+}
+.content-123-center-90{
+    width: 90%;
+}
+.content-123-left-100{
+}
+
+.content-123-right-100{
+}
+/*contents*/
+
+
+
+
+.vertical-center {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+/*usage only left or right container content  */
+.center-icon {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+/*background selected root menu */
+.root-123-selected{
+    background: #d3cfcf;
+}
+/*background selected not root menu */
+.item-123-selected{
+    background: #e1dede;
+}
+
+.box {
+    display: flex;
+    height: 100%;
+    align-content: space-around;
+    align-items: center;
+    flex-direction:row;
+    justify-content: center;
+}
+/*background menu dropDow*/
+.drop-123-open{
+    background: #c5c3c3;
+}
+a[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active
+{
+    text-decoration: none;
+    color: black;
+}
+
