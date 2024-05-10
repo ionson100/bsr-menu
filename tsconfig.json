@@ -7,15 +7,9 @@
     "strict": true,
     "skipLibCheck": true,
 
-    // добавленное
-    "jsx": "react",
-    "module": "ESNext",
-    "declaration": true,
-    "sourceMap": false,
-    "outDir": "dist",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
+
+
+
 
 
   }

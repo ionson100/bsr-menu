@@ -1,7 +1,7 @@
 
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
+import {dts} from "rollup-plugin-dts";
 import resolve from "@rollup/plugin-node-resolve";
 import postcss from "rollup-plugin-postcss";
 
@@ -41,8 +41,8 @@ export default [
     },
     {
         input: "dist/esm/index.d.ts",
-        output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [dts.default(), ],
+        output: [{ file: "dist/index.d.ts", format: "es" }],
+        plugins: [dts()],
         external: [/\.css$/], // telling rollup anything that is .css aren't part of type exports
     },
 ];
