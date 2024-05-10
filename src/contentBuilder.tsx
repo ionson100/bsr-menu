@@ -1,21 +1,20 @@
 import React from "react";
 
 
-
-function isFunction(value:any){
-   return  value ? (Object.prototype.toString.call(value) === "[object Function]" || "function" === typeof value || value instanceof Function) : false;
+function isFunction(value: any) {
+    return value ? (Object.prototype.toString.call(value) === "[object Function]" || "function" === typeof value || value instanceof Function) : false;
 }
 
 
 // eslint-disable-next-line no-unused-vars
-function buildContent(contentLeft:any|undefined,
-                      contentCenter:any|undefined,
-                      contentRight:any|undefined,
-                      iconDropOpen:any|undefined,
-                      iconDropClose:any|undefined,
-                      isOpenDrop:boolean|undefined,
-                      id:string|undefined,
-                      tag:any|undefined){
+function buildContent(contentLeft: any,
+                      contentCenter: any,
+                      contentRight: any,
+                      iconDropOpen: any,
+                      iconDropClose: any,
+                      isOpenDrop: boolean | undefined,
+                      id: string | undefined,
+                      tag: any) {
 
     if (isFunction(contentLeft)) {
         contentLeft = contentLeft();
@@ -32,11 +31,11 @@ function buildContent(contentLeft:any|undefined,
     if (isFunction(iconDropClose)) {
         iconDropClose = iconDropClose();
     }
-    if(iconDropClose&&iconDropOpen){
-        if(isOpenDrop===true){
-            contentRight=iconDropOpen;
-        }else if(isOpenDrop===false){
-            contentRight=iconDropClose;
+    if (iconDropClose && iconDropOpen) {
+        if (isOpenDrop === true) {
+            contentRight = iconDropOpen;
+        } else if (isOpenDrop === false) {
+            contentRight = iconDropClose;
         }
     }
 
@@ -75,7 +74,7 @@ function buildContent(contentLeft:any|undefined,
         return (
 
             <div className='box'>
-                <div   className='  content-123-center-90 t-over'>{contentCenter}</div>
+                <div className='  content-123-center-90 t-over'>{contentCenter}</div>
                 <div className='content-123-right-10'>{contentRight}</div>
 
             </div>

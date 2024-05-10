@@ -20,7 +20,7 @@ class MyObserver {
     private lastActionMoveId: string | undefined;
     private lastActionAddId: string | undefined;
     public classRoot: string;
-    public classItem:string;
+    public classItem: string;
 
     constructor(classRoot: string, classItem: string) {
 
@@ -33,14 +33,14 @@ class MyObserver {
 
     }
 
-    Add(observerItem:any) {
+    Add(observerItem: any) {
         if (this.lastActionAddId !== observerItem.id) {
             this._innerAdd(observerItem);
             this.lastActionAddId = observerItem.id;
         }
     }
 
-    _innerAdd(observerItem:any) {
+    _innerAdd(observerItem: any) {
         if (!this._hasList(observerItem)) {
 
             if (observerItem.idRoot === "superRoot") {
@@ -59,7 +59,7 @@ class MyObserver {
         }
     }
 
-    _innerValue(o:any) {
+    _innerValue(o: any) {
         if (this.classRoot) {
             o.elementMenu.classList.remove(this.classRoot)
         }
@@ -69,7 +69,7 @@ class MyObserver {
         o.element.style.visibility = 'hidden';
     }
 
-    ClickSelect(tag:any, element:any, funClick:any) {
+    ClickSelect(tag: any, element: any, funClick: any) {
         this.listItem.forEach(a => {
             this._innerValue(a)
         })
@@ -86,7 +86,7 @@ class MyObserver {
         this.lastActionAddId = undefined;
     }
 
-    _hasList(item:any) {
+    _hasList(item: any) {
         let res = false;
         this.listItem.forEach(a => {
             if (a.id === item.id) {
@@ -96,7 +96,7 @@ class MyObserver {
         return res;
     }
 
-    MoveMenu(observerItem:any, action:any) {
+    MoveMenu(observerItem: any, action: any) {
 
         if (this.lastActionMoveId === observerItem.id) return;
         const tempListRoot: any[] = [];
@@ -126,7 +126,7 @@ class MyObserver {
 
     }
 
-    clearClick(callback:any) {
+    clearClick(callback: any) {
         this.listItem.forEach(a => {
             this._innerValue(a)
         })

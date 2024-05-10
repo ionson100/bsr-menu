@@ -2,10 +2,10 @@
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-
 import resolve from "@rollup/plugin-node-resolve";
 import postcss from "rollup-plugin-postcss";
 
+// eslint-disable-next-line no-undef
 const packageJson = require("./package.json");
 
 export default [
