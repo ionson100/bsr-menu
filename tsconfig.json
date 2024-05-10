@@ -11,11 +11,12 @@
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
+
 
   }
 }
