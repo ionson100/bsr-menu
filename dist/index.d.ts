@@ -55,7 +55,7 @@ interface MyState {
     url?: string;
     tag: any;
 }
-declare const CloseMenu: (callback: () => void) => void;
+declare function CloseMenu(callback?: () => void): void;
 declare const MenuItem: {
     new (props: Readonly<MyProps>): {
         readonly mRefMenu: React.RefObject<HTMLInputElement>;

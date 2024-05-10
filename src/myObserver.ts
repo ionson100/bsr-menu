@@ -126,14 +126,15 @@ class MyObserver {
 
     }
 
-    clearClick(callback: any) {
+    clearClick(callback?:()=>void) {
         this.listItem.forEach(a => {
             this._innerValue(a)
         })
         this._innerClearState()
-        if (callback) {
+        if (callback){
             callback()
         }
+
     }
 }
 

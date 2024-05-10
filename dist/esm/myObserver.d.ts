@@ -20,7 +20,7 @@ declare class MyObserver {
     _innerClearState(): void;
     _hasList(item: any): boolean;
     MoveMenu(observerItem: any, action: any): void;
-    clearClick(callback: any): void;
+    clearClick(callback?: () => void): void;
 }
 export declare const InstanceHub: MyObserver;
 export {};

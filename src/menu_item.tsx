@@ -23,7 +23,7 @@ interface MyState {
 const MyRootContext = React.createContext<string>('superRoot');
 
 
-export const CloseMenu = (callback: () => void) => {
+export function CloseMenu(callback?: () => void) {
     MyHub.hub.clearClick(callback)
 }
 
@@ -41,7 +41,7 @@ const MyHub = {
 
 document.addEventListener("click", () => {
 
-    MyHub.hub.clearClick(undefined)
+    MyHub.hub.clearClick()
 });
 
 
@@ -87,7 +87,6 @@ export const MenuItem = class extends Component<MyProps, MyState> {
         this.mRefPopup = React.createRef<HTMLInputElement>();
         this.onClick = this.props.onClick;
         this.stateDropMenu = false;
-
 
 
         this._MyMenu = this.props.behavior === "move";
@@ -165,8 +164,8 @@ export const MenuItem = class extends Component<MyProps, MyState> {
             if (this.mRefPopup.current!.style.visibility === "visible") return;
         }
 
-        const MENU=this.mRefMenu.current!
-        const POPUP=this.mRefPopup.current!
+        const MENU = this.mRefMenu.current!
+        const POPUP = this.mRefPopup.current!
         switch (this.props.positionPopup) {
             case "dropDown": {
 
@@ -452,7 +451,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change url
      * @param {string} url
      */
-    setUrl(url: string|undefined) {
+    setUrl(url: string | undefined) {
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.url = url;
@@ -463,7 +462,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change tag
      * @param  {any} tag
      */
-    setTag(tag: any|undefined) {
+    setTag(tag: any | undefined) {
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.tag = tag;

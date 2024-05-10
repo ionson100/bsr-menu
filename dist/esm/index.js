@@ -3111,9 +3111,9 @@ window.addEventListener('resize', function () {
 
 var _a;
 var MyRootContext = React.createContext('superRoot');
-var CloseMenu = function (callback) {
+function CloseMenu(callback) {
     MyHub.hub.clearClick(callback);
-};
+}
 var MyHub = {
     hub: InstanceHub
 };
@@ -3123,7 +3123,7 @@ var MyHub = {
  * @constructor
  */
 document.addEventListener("click", function () {
-    MyHub.hub.clearClick(undefined);
+    MyHub.hub.clearClick();
 });
 var MenuItem = (_a = /** @class */ (function (_super) {
         __extends(class_1, _super);

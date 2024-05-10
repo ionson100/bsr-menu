@@ -12,7 +12,7 @@ interface MyState {
     url?: string;
     tag: any;
 }
-export declare const CloseMenu: (callback: () => void) => void;
+export declare function CloseMenu(callback?: () => void): void;
 export declare const MenuItem: {
     new (props: Readonly<MyProps>): {
         readonly mRefMenu: React.RefObject<HTMLInputElement>;
