@@ -2924,7 +2924,6 @@ function v4(options, buf, offset) {
 function isFunction(value) {
     return value ? (Object.prototype.toString.call(value) === "[object Function]" || "function" === typeof value || value instanceof Function) : false;
 }
-// eslint-disable-next-line no-unused-vars
 function buildContent(param) {
     if (isFunction(param.contentLeft)) {
         param.contentLeft = param.contentLeft();
@@ -3154,7 +3153,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         }
         Object.defineProperty(class_1.prototype, "menu", {
             /**
-             * HTMLElement menu
+             * HTMLDivElement menu
              */
             get: function () {
                 return this.mRefMenu.current;
@@ -3164,7 +3163,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         });
         Object.defineProperty(class_1.prototype, "popUp", {
             /**
-             * HTMLElement poopUp
+             * HTMLDivElement poopUp
              */
             get: function () {
                 return this.mRefPopup.current;
@@ -3173,6 +3172,9 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             configurable: true
         });
         Object.defineProperty(class_1.prototype, "wrapper", {
+            /**
+             * HTMLAnchorElement wrapper menu
+             */
             get: function () {
                 return this.mRefWrapper.current;
             },

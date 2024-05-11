@@ -1,14 +1,13 @@
-import React from "react";
+import React, {ReactElement} from "react";
 import {ParamBuildContent} from "./menu.type";
 
 
-function isFunction(value: any) {
+function isFunction(value: any): boolean {
     return value ? (Object.prototype.toString.call(value) === "[object Function]" || "function" === typeof value || value instanceof Function) : false;
 }
 
 
-// eslint-disable-next-line no-unused-vars
-function buildContent(param:ParamBuildContent) {
+function buildContent(param: ParamBuildContent): ReactElement | undefined {
 
     if (isFunction(param.contentLeft)) {
         param.contentLeft = param.contentLeft();

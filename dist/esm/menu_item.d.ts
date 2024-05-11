@@ -23,13 +23,16 @@ export declare const MenuItem: {
         stateDropMenu: boolean;
         _MyMenu: boolean;
         /**
-         * HTMLElement menu
+         * HTMLDivElement menu
          */
         readonly menu: HTMLDivElement | null;
         /**
-         * HTMLElement poopUp
+         * HTMLDivElement poopUp
          */
         readonly popUp: HTMLDivElement | null;
+        /**
+         * HTMLAnchorElement wrapper menu
+         */
         readonly wrapper: HTMLAnchorElement | null;
         _resizeWindows(): void;
         _validateResizeRight(l: number): void;

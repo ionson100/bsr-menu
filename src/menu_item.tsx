@@ -1,8 +1,6 @@
 import './menu.css';
 import React, {Children, Component} from "react";
 import {v4 as uuidv4} from 'uuid';
-
-
 import buildContent from "./contentBuilder";
 import {ObserverItem, InstanceHub} from "./myObserver";
 import {MapMenu} from "./resizeFactory";
@@ -109,19 +107,22 @@ export const MenuItem = class extends Component<MyProps, MyState> {
     }
 
     /**
-     * HTMLElement menu
+     * HTMLDivElement menu
      */
-    get menu() {
+   public get menu():HTMLDivElement|null {
         return this.mRefMenu.current
     }
     /**
-     * HTMLElement poopUp
+     * HTMLDivElement poopUp
      */
-    get popUp() {
+   public get popUp():HTMLDivElement|null {
         return this.mRefPopup.current;
     }
 
-    get wrapper() {
+    /**
+     * HTMLAnchorElement wrapper menu
+     */
+   public get wrapper():HTMLAnchorElement|null {
         return this.mRefWrapper.current;
     }
 
@@ -355,7 +356,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * @constructor
      * @param  {boolean} value true-show, false-not show
      */
-    setShow(value: boolean) {
+    public setShow(value: boolean):void {
 
         if (!value) {
             this.mRefWrapper.current!.style.display = "none"
@@ -371,7 +372,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change disabled
      * @param  {boolean} value true-disable, false- not disable
      */
-    setDisabled(value: boolean) {
+    public setDisabled(value: boolean):void {
         if (value) {
             this.mRefWrapper.current!.style.cursor = 'not-allowed'
         } else {
@@ -387,7 +388,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Open menu
      * @function
      */
-    open() {
+    public open():void {
         if (this.props.children) {
 
             this.stateDropMenu = true;
@@ -408,7 +409,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * CloseMenu
      * @function
      */
-    close() {
+    public close():void {
         this.stateDropMenu = false;
         this.mRefMenu.current!.classList.remove('drop-123-open')
         this.mRefPopup.current!.style.position = 'absolute'
@@ -428,7 +429,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * @param {any} content
      * @param  {any} contentRich
      */
-    setContent(contentLeft?: any, content?: any, contentRich?: any) {
+   public setContent(contentLeft?: any, content?: any, contentRich?: any):void {
         const s = Object.assign({}, this.state)
 
         // @ts-ignore
@@ -446,7 +447,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change url
      * @param {string} url
      */
-    setUrl(url: string | undefined) {
+   public setUrl(url: string | undefined):void {
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.url = url;
@@ -457,7 +458,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change tag
      * @param  {any} tag
      */
-    setTag(tag: any | undefined) {
+    setTag(tag: any | undefined):void {
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.tag = tag;
