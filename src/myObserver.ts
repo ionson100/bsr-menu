@@ -1,3 +1,6 @@
+interface TypeObserver{
+    id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement
+}
 export class ObserverItem {
 
     private id: string;
@@ -5,11 +8,11 @@ export class ObserverItem {
     private idRoot: string;
     private elementMenu: HTMLElement
 
-    constructor(id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement) {
-        this.id = id;
-        this.element = element;
-        this.idRoot = idRoot;
-        this.elementMenu = elementMenu;
+    constructor(param:TypeObserver) {
+        this.id = param.id;
+        this.element = param.element;
+        this.idRoot = param.idRoot;
+        this.elementMenu = param.elementMenu;
 
     }
 }

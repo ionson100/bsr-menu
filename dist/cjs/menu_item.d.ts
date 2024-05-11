@@ -15,15 +15,21 @@ interface MyState {
 export declare function CloseMenu(callback?: () => void): void;
 export declare const MenuItem: {
     new (props: Readonly<MyProps>): {
-        readonly mRefMenu: React.RefObject<HTMLInputElement>;
+        readonly mRefMenu: React.RefObject<HTMLDivElement>;
         readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
-        readonly mRefPopup: React.RefObject<HTMLInputElement>;
-        readonly onClick: any;
+        readonly mRefPopup: React.RefObject<HTMLDivElement>;
+        readonly onClick?: ((tag: any, element: HTMLElement, isOpen: boolean | undefined) => void) | undefined;
         readonly id: string;
         stateDropMenu: boolean;
         _MyMenu: boolean;
-        readonly menu: HTMLInputElement | null;
-        readonly popUp: HTMLInputElement | null;
+        /**
+         * HTMLElement menu
+         */
+        readonly menu: HTMLDivElement | null;
+        /**
+         * HTMLElement poopUp
+         */
+        readonly popUp: HTMLDivElement | null;
         readonly wrapper: HTMLAnchorElement | null;
         _resizeWindows(): void;
         _validateResizeRight(l: number): void;

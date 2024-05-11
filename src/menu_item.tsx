@@ -69,12 +69,12 @@ export const MenuItem = class extends Component<MyProps, MyState> {
         tabIndex: undefined,
         iconDropClose: undefined,
         iconDropOpen: undefined,
-        style: undefined
+        style: undefined,
     };
-    public readonly mRefMenu: React.RefObject<HTMLInputElement>;
+    public readonly mRefMenu: React.RefObject<HTMLDivElement>;
     public readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
-    public readonly mRefPopup: React.RefObject<HTMLInputElement>;
-    public readonly onClick: any
+    public readonly mRefPopup: React.RefObject<HTMLDivElement>;
+    public readonly onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void
     public readonly id: string;
     public stateDropMenu: boolean
     public _MyMenu: boolean
@@ -82,9 +82,9 @@ export const MenuItem = class extends Component<MyProps, MyState> {
     constructor(props: Readonly<MyProps>) {
         super(props);
         this.id = uuidv4();
-        this.mRefMenu = React.createRef<HTMLInputElement>();
+        this.mRefMenu = React.createRef<HTMLDivElement>();
         this.mRefWrapper = React.createRef<HTMLAnchorElement>();
-        this.mRefPopup = React.createRef<HTMLInputElement>();
+        this.mRefPopup = React.createRef<HTMLDivElement>();
         this.onClick = this.props.onClick;
         this.stateDropMenu = false;
 
@@ -108,10 +108,15 @@ export const MenuItem = class extends Component<MyProps, MyState> {
 
     }
 
+    /**
+     * HTMLElement menu
+     */
     get menu() {
         return this.mRefMenu.current
     }
-
+    /**
+     * HTMLElement poopUp
+     */
     get popUp() {
         return this.mRefPopup.current;
     }
@@ -289,12 +294,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
 
 
         if (this.props.children) {
-            MyHub.hub.Add(new ObserverItem(
-                this.id,
-                POPUP,
-                this.context,
-                MENU
-            ))
+            MyHub.hub.Add(new ObserverItem({id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU}))
             POPUP.style.visibility = "visible"
             POPUP.style.display = "block"
         }
@@ -330,14 +330,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                 myThis._visibilityPane(undefined)
             }
         }
-
-        //id: string, element: HTMLElement, idRoot: string, elementMenu: HTMLElement
-        MyHub.hub.MoveMenu(new ObserverItem(
-            this.id,
-            this.mRefPopup.current!,
-            this.context,
-            this.mRefMenu.current!,
-        ), inner);
+        MyHub.hub.MoveMenu(new ObserverItem({id: this.id, element: this.mRefPopup.current!, idRoot: this.context, elementMenu: this.mRefMenu.current!}), inner);
     }
 
     _movePopUp() {
@@ -442,9 +435,11 @@ export const MenuItem = class extends Component<MyProps, MyState> {
         s.content = {
             contentLeft: contentLeft,
             content: content,
-            contentRich: contentRich
+            contentRight: contentRich
         };
         this.setState(s);
+
+
     }
 
     /**
@@ -483,6 +478,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
 
 
     render() {
+
         return (
             <object>
                 <a href={this._getUrl()} data-wrapper={1} ref={this.mRefWrapper}>
@@ -491,10 +487,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                          id={this.props.id}
                         // @ts-ignore
                          onClick={this._click}
-
-
                          onMouseMove={this._moveMenu}
-
                          accessKey={this.props.accessKey}
                          title={this.props.title}
                          tabIndex={this.props.tabIndex}
@@ -505,14 +498,16 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                         {
 
                             this.props.buildContent(
-                                this.state.content.contentLeft,
-                                this.state.content.content,
-                                this.state.content.contentRight,
-                                this.props.iconDropClose,
-                                this.props.iconDropOpen,
-                                this.state.dropOpen,
-                                this.props.id,
-                                this.state.tag
+                                {
+                                    contentLeft: this.state.content.contentLeft,
+                                    contentCenter: this.state.content.content,
+                                    contentRight: this.state.content.contentRight,
+                                    iconDropOpen: this.props.iconDropOpen,
+                                    iconDropClose: this.props.iconDropClose,
+                                    isOpenDrop: this.state.dropOpen,
+                                    id:this.props.id,
+                                    tag: this.state.tag
+                                }
                             )
                         }
                     </div>
@@ -520,12 +515,11 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                         data-memu-poopup={this.state.tag}
                         // @ts-ignore
                         disabled={this.state.disabled}
-
                         onMouseMove={this._movePopUp.bind(this)}
                         ref={this.mRefPopup}
                         className={this.props.popupClassName}>
                         {
-                            this.props.children === undefined ? (<></>) : (
+                            this.props.children === undefined ? (<div/>) : (
                                 <MyRootContext.Provider value={this.id}>
                                     {this.props.children}
                                 </MyRootContext.Provider>
@@ -534,8 +528,6 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                     </div>
                 </a>
             </object>
-
-
         );
     }
 }

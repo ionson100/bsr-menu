@@ -1,4 +1,14 @@
 import React from "react";
+export interface ParamBuildContent {
+    contentLeft: any;
+    contentCenter: any;
+    contentRight: any;
+    iconDropOpen: any;
+    iconDropClose: any;
+    isOpenDrop: boolean | undefined;
+    id: string | undefined;
+    tag: any;
+}
 export interface MyProps {
     accessKey: string | undefined;
     /**
@@ -12,7 +22,7 @@ export interface MyProps {
      * @param  id id menu
      * @param tag tag menu
      */
-    buildContent: (contentLeft: any, contentCenter: any, contentRight: any, iconDropOpen: any, iconDropClose: any, isOpenDrop: boolean | undefined, id: string | undefined, tag: any) => any;
+    buildContent: (param: ParamBuildContent) => any;
     /**The submenu opening behavior can be 'move' or 'click'. (mov: mouse move) (click: mouse click) . Default 'move'*/
     behavior: 'move' | 'click';
     /**css class menu. default: 'menu-123-item'.*/
@@ -32,7 +42,7 @@ export interface MyProps {
     iconDropOpen: any;
     /**Only for menu where positionPopup='dropDown'.*/
     iconDropClose: any;
-    onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void | undefined;
+    onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void;
     /**css class submenu panel. default:'popup-123'.*/
     popupClassName?: string;
     /**Position of the sub menu panel, can take value: ['down', 'top', 'downLeft', 'downRight', 'topRight', 'topLeft', 'dropDown','middleLeft','middleLeft3','middleLeft4','middleLeft5','middleRight','middleRight3','middleRight4','middleRight5']. Default:'down'*/

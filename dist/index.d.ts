@@ -1,5 +1,15 @@
 import React from 'react';
 
+interface ParamBuildContent {
+    contentLeft: any;
+    contentCenter: any;
+    contentRight: any;
+    iconDropOpen: any;
+    iconDropClose: any;
+    isOpenDrop: boolean | undefined;
+    id: string | undefined;
+    tag: any;
+}
 interface MyProps {
     accessKey: string | undefined;
     /**
@@ -13,7 +23,7 @@ interface MyProps {
      * @param  id id menu
      * @param tag tag menu
      */
-    buildContent: (contentLeft: any, contentCenter: any, contentRight: any, iconDropOpen: any, iconDropClose: any, isOpenDrop: boolean | undefined, id: string | undefined, tag: any) => any;
+    buildContent: (param: ParamBuildContent) => any;
     /**The submenu opening behavior can be 'move' or 'click'. (mov: mouse move) (click: mouse click) . Default 'move'*/
     behavior: 'move' | 'click';
     /**css class menu. default: 'menu-123-item'.*/
@@ -33,7 +43,7 @@ interface MyProps {
     iconDropOpen: any;
     /**Only for menu where positionPopup='dropDown'.*/
     iconDropClose: any;
-    onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void | undefined;
+    onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void;
     /**css class submenu panel. default:'popup-123'.*/
     popupClassName?: string;
     /**Position of the sub menu panel, can take value: ['down', 'top', 'downLeft', 'downRight', 'topRight', 'topLeft', 'dropDown','middleLeft','middleLeft3','middleLeft4','middleLeft5','middleRight','middleRight3','middleRight4','middleRight5']. Default:'down'*/
@@ -58,15 +68,21 @@ interface MyState {
 declare function CloseMenu(callback?: () => void): void;
 declare const MenuItem: {
     new (props: Readonly<MyProps>): {
-        readonly mRefMenu: React.RefObject<HTMLInputElement>;
+        readonly mRefMenu: React.RefObject<HTMLDivElement>;
         readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
-        readonly mRefPopup: React.RefObject<HTMLInputElement>;
-        readonly onClick: any;
+        readonly mRefPopup: React.RefObject<HTMLDivElement>;
+        readonly onClick?: ((tag: any, element: HTMLElement, isOpen: boolean | undefined) => void) | undefined;
         readonly id: string;
         stateDropMenu: boolean;
         _MyMenu: boolean;
-        readonly menu: HTMLInputElement | null;
-        readonly popUp: HTMLInputElement | null;
+        /**
+         * HTMLElement menu
+         */
+        readonly menu: HTMLDivElement | null;
+        /**
+         * HTMLElement poopUp
+         */
+        readonly popUp: HTMLDivElement | null;
         readonly wrapper: HTMLAnchorElement | null;
         _resizeWindows(): void;
         _validateResizeRight(l: number): void;

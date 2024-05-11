@@ -2925,69 +2925,69 @@ function isFunction(value) {
     return value ? (Object.prototype.toString.call(value) === "[object Function]" || "function" === typeof value || value instanceof Function) : false;
 }
 // eslint-disable-next-line no-unused-vars
-function buildContent(contentLeft, contentCenter, contentRight, iconDropOpen, iconDropClose, isOpenDrop, id, tag) {
-    if (isFunction(contentLeft)) {
-        contentLeft = contentLeft();
+function buildContent(param) {
+    if (isFunction(param.contentLeft)) {
+        param.contentLeft = param.contentLeft();
     }
-    if (isFunction(contentCenter)) {
-        contentCenter = contentCenter();
+    if (isFunction(param.contentCenter)) {
+        param.contentCenter = param.contentCenter();
     }
-    if (isFunction(contentRight)) {
-        contentRight = contentRight();
+    if (isFunction(param.contentRight)) {
+        param.contentRight = param.contentRight();
     }
-    if (isFunction(iconDropOpen)) {
-        iconDropOpen = iconDropOpen();
+    if (isFunction(param.iconDropOpen)) {
+        param.iconDropOpen = param.iconDropOpen();
     }
-    if (isFunction(iconDropClose)) {
-        iconDropClose = iconDropClose();
+    if (isFunction(param.iconDropClose)) {
+        param.iconDropClose = param.iconDropClose();
     }
-    if (iconDropClose && iconDropOpen) {
-        if (isOpenDrop === true) {
-            contentRight = iconDropOpen;
+    if (param.iconDropClose && param.iconDropOpen) {
+        if (param.isOpenDrop === true) {
+            param.contentRight = param.iconDropOpen;
         }
-        else if (isOpenDrop === false) {
-            contentRight = iconDropClose;
+        else if (param.isOpenDrop === false) {
+            param.contentRight = param.iconDropClose;
         }
     }
-    if (!contentLeft && contentCenter && !contentRight) {
+    if (!param.contentLeft && param.contentCenter && !param.contentRight) {
         return (React.createElement("div", { className: 'container' },
             React.createElement("div", { className: 'vertical-center' },
-                React.createElement("div", { className: 'content-123-center-100' }, contentCenter))));
+                React.createElement("div", { className: 'content-123-center-100' }, param.contentCenter))));
     }
-    if (contentLeft && contentCenter && !contentRight) {
+    if (param.contentLeft && param.contentCenter && !param.contentRight) {
         return (React.createElement("div", { className: 'box' },
-            React.createElement("div", { className: 'content-123-left-10' }, contentLeft),
-            React.createElement("div", { className: 'content-123-center-90 t-over' }, contentCenter)));
+            React.createElement("div", { className: 'content-123-left-10' }, param.contentLeft),
+            React.createElement("div", { className: 'content-123-center-90 t-over' }, param.contentCenter)));
     }
-    if (contentLeft && contentCenter && contentRight) {
+    if (param.contentLeft && param.contentCenter && param.contentRight) {
         return (React.createElement("div", { className: 'box' },
-            React.createElement("div", { className: 'content-123-left-10' }, contentLeft),
-            React.createElement("div", { className: 'content-123-center-80 t-over' }, contentCenter),
-            React.createElement("div", { className: 'content-123-right-10' }, contentRight)));
+            React.createElement("div", { className: 'content-123-left-10' }, param.contentLeft),
+            React.createElement("div", { className: 'content-123-center-80 t-over' }, param.contentCenter),
+            React.createElement("div", { className: 'content-123-right-10' }, param.contentRight)));
     }
-    if (!contentLeft && contentCenter && contentRight) {
+    if (!param.contentLeft && param.contentCenter && param.contentRight) {
         return (React.createElement("div", { className: 'box' },
-            React.createElement("div", { className: '  content-123-center-90 t-over' }, contentCenter),
-            React.createElement("div", { className: 'content-123-right-10' }, contentRight)));
+            React.createElement("div", { className: '  content-123-center-90 t-over' }, param.contentCenter),
+            React.createElement("div", { className: 'content-123-right-10' }, param.contentRight)));
     }
-    if (contentLeft && !contentCenter && !contentRight) {
+    if (param.contentLeft && !param.contentCenter && !param.contentRight) {
         return (React.createElement("div", { className: 'container' },
             React.createElement("div", { className: 'center-icon' },
-                React.createElement("div", { className: 'content-123-left-100' }, contentLeft))));
+                React.createElement("div", { className: 'content-123-left-100' }, param.contentLeft))));
     }
-    if (!contentLeft && !contentCenter && contentRight) {
+    if (!param.contentLeft && !param.contentCenter && param.contentRight) {
         return (React.createElement("div", { className: 'container' },
             React.createElement("div", { className: 'center-icon' },
-                React.createElement("div", { className: 'content-123-right-100' }, contentRight))));
+                React.createElement("div", { className: 'content-123-right-100' }, param.contentRight))));
     }
 }
 
 var ObserverItem = /** @class */ (function () {
-    function ObserverItem(id, element, idRoot, elementMenu) {
-        this.id = id;
-        this.element = element;
-        this.idRoot = idRoot;
-        this.elementMenu = elementMenu;
+    function ObserverItem(param) {
+        this.id = param.id;
+        this.element = param.element;
+        this.idRoot = param.idRoot;
+        this.elementMenu = param.elementMenu;
     }
     return ObserverItem;
 }());
@@ -3153,6 +3153,9 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             return _this;
         }
         Object.defineProperty(class_1.prototype, "menu", {
+            /**
+             * HTMLElement menu
+             */
             get: function () {
                 return this.mRefMenu.current;
             },
@@ -3160,6 +3163,9 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             configurable: true
         });
         Object.defineProperty(class_1.prototype, "popUp", {
+            /**
+             * HTMLElement poopUp
+             */
             get: function () {
                 return this.mRefPopup.current;
             },
@@ -3319,7 +3325,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 }
             }
             if (this.props.children) {
-                MyHub.hub.Add(new ObserverItem(this.id, POPUP, this.context, MENU));
+                MyHub.hub.Add(new ObserverItem({ id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU }));
                 POPUP.style.visibility = "visible";
                 POPUP.style.display = "block";
             }
@@ -3349,8 +3355,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                     myThis._visibilityPane(undefined);
                 }
             }
-            //id: string, element: HTMLElement, idRoot: string, elementMenu: HTMLElement
-            MyHub.hub.MoveMenu(new ObserverItem(this.id, this.mRefPopup.current, this.context, this.mRefMenu.current), inner);
+            MyHub.hub.MoveMenu(new ObserverItem({ id: this.id, element: this.mRefPopup.current, idRoot: this.context, elementMenu: this.mRefMenu.current }), inner);
         };
         class_1.prototype._movePopUp = function () {
             this.mRefPopup.current.style.visibility = "visible";
@@ -3445,7 +3450,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             s.content = {
                 contentLeft: contentLeft,
                 content: content,
-                contentRich: contentRich
+                contentRight: contentRich
             };
             this.setState(s);
         };
@@ -3486,10 +3491,19 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                         // @ts-ignore
                         onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, 
                         // @ts-ignore
-                        disabled: this.state.disabled, className: this.props.className }, this.props.buildContent(this.state.content.contentLeft, this.state.content.content, this.state.content.contentRight, this.props.iconDropClose, this.props.iconDropOpen, this.state.dropOpen, this.props.id, this.state.tag)),
+                        disabled: this.state.disabled, className: this.props.className }, this.props.buildContent({
+                        contentLeft: this.state.content.contentLeft,
+                        contentCenter: this.state.content.content,
+                        contentRight: this.state.content.contentRight,
+                        iconDropOpen: this.props.iconDropOpen,
+                        iconDropClose: this.props.iconDropClose,
+                        isOpenDrop: this.state.dropOpen,
+                        id: this.props.id,
+                        tag: this.state.tag
+                    })),
                     React.createElement("div", { "data-memu-poopup": this.state.tag, 
                         // @ts-ignore
-                        disabled: this.state.disabled, onMouseMove: this._movePopUp.bind(this), ref: this.mRefPopup, className: this.props.popupClassName }, this.props.children === undefined ? (React.createElement(React.Fragment, null)) : (React.createElement(MyRootContext.Provider, { value: this.id }, this.props.children))))));
+                        disabled: this.state.disabled, onMouseMove: this._movePopUp.bind(this), ref: this.mRefPopup, className: this.props.popupClassName }, this.props.children === undefined ? (React.createElement("div", null)) : (React.createElement(MyRootContext.Provider, { value: this.id }, this.props.children))))));
         };
         return class_1;
     }(reactExports.Component)),
@@ -3513,7 +3527,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         tabIndex: undefined,
         iconDropClose: undefined,
         iconDropOpen: undefined,
-        style: undefined
+        style: undefined,
     },
     _a);
 MenuItem.contextType = MyRootContext;

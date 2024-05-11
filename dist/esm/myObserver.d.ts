@@ -1,9 +1,15 @@
+interface TypeObserver {
+    id: string;
+    element: HTMLElement;
+    idRoot: any;
+    elementMenu: HTMLElement;
+}
 export declare class ObserverItem {
     private id;
     private element;
     private idRoot;
     private elementMenu;
-    constructor(id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement);
+    constructor(param: TypeObserver);
 }
 declare class MyObserver {
     private root?;
