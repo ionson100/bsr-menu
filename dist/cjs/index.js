@@ -63,7 +63,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "\r\n\r\n\r\n/* styles menu core*/\r\n.menu-123-item {\r\n    height: 30px;\r\n    width: 200px;\r\n    cursor: pointer;\r\n}\r\n.menu-123-item:hover{\r\n    background: #fafaf7;\r\n}\r\n.menu-123-item:active{\r\n    background: #d5d2d2;\r\n}\r\n/*style disabled menu*/\r\ndiv[disabled]\r\n{\r\n    pointer-events: none;\r\n    opacity: 0.5;\r\n}\r\n/* override text */\r\n.t-over{\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    text-overflow:ellipsis;\r\n}\r\n/*style panel popup submenu*/\r\n.popup-123{\r\n    border: 1px solid #757474;\r\n    width: min-content;\r\n    background: white;\r\n}\r\n\r\n.container {\r\n    height: 100%;\r\n    position: relative;\r\n}\r\n\r\n/*contents*/\r\n.content-123-left-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-80{\r\n    width: 80%;\r\n}\r\n.content-123-right-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-100{\r\n width: 100%;\r\n}\r\n.content-123-center-90{\r\n    width: 90%;\r\n}\r\n.content-123-left-100{\r\n}\r\n\r\n.content-123-right-100{\r\n}\r\n/*contents*/\r\n\r\n\r\n\r\n\r\n.vertical-center {\r\n    width: 100%;\r\n    display: flex;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n/*usage only left or right container content  */\r\n.center-icon {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    -ms-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n/*background selected root menu */\r\n.root-123-selected{\r\n    background: #d3cfcf;\r\n}\r\n/*background selected not root menu */\r\n.item-123-selected{\r\n    background: #e1dede;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n    height: 100%;\r\n    align-content: space-around;\r\n    align-items: center;\r\n    flex-direction:row;\r\n    justify-content: center;\r\n}\r\n/*background menu dropDow*/\r\n.drop-123-open{\r\n    background: #c5c3c3;\r\n}\r\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\r\n{\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n";
+var css_248z = "\r\n\r\n\r\n/* styles menu core*/\r\n.menu-123-item {\r\n    height: 30px;\r\n    width: 200px;\r\n    cursor: pointer;\r\n}\r\n.menu-123-item:hover{\r\n    background: #fafaf7;\r\n}\r\n.menu-123-item:active{\r\n    background: #d5d2d2;\r\n}\r\n/*style disabled menu*/\r\ndiv[disabled]\r\n{\r\n    pointer-events: none;\r\n    opacity: 0.5;\r\n}\r\n/* override text */\r\n.t-over{\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    text-overflow:ellipsis;\r\n}\r\n/*style panel popup submenu*/\r\n.popup-123{\r\n    border: 1px solid #757474;\r\n    width: min-content;\r\n    background: white;\r\n}\r\n\r\n.container-123 {\r\n    height: 100%;\r\n    position: relative;\r\n}\r\n\r\n/*contents*/\r\n.content-123-left-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-80{\r\n    width: 80%;\r\n}\r\n.content-123-right-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-100{\r\n width: 100%;\r\n}\r\n.content-123-center-90{\r\n    width: 90%;\r\n}\r\n.content-123-left-100{\r\n}\r\n\r\n.content-123-right-100{\r\n}\r\n/*contents*/\r\n\r\n\r\n\r\n\r\n.vertical-center-123 {\r\n    width: 100%;\r\n    display: flex;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n/*usage only left or right container content  */\r\n.center-icon-123 {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    -ms-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n/*background selected root menu */\r\n.root-123-selected{\r\n    background: #d3cfcf;\r\n}\r\n/*background selected not root menu */\r\n.item-123-selected{\r\n    background: #e1dede;\r\n}\r\n\r\n.box-123 {\r\n    display: flex;\r\n    height: 100%;\r\n    align-content: space-around;\r\n    align-items: center;\r\n    flex-direction:row;\r\n    justify-content: center;\r\n}\r\n/*background menu dropDow*/\r\n.drop-123-open{\r\n    background: #c5c3c3;\r\n}\r\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\r\n{\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n";
 styleInject(css_248z);
 
 function getDefaultExportFromCjs (x) {
@@ -2951,34 +2951,34 @@ function buildContent(param) {
         }
     }
     if (!param.contentLeft && param.contentCenter && !param.contentRight) {
-        return (React.createElement("div", { className: 'container' },
-            React.createElement("div", { className: 'vertical-center' },
+        return (React.createElement("div", { className: 'container-123' },
+            React.createElement("div", { className: 'vertical-center-123' },
                 React.createElement("div", { className: 'content-123-center-100' }, param.contentCenter))));
     }
     if (param.contentLeft && param.contentCenter && !param.contentRight) {
-        return (React.createElement("div", { className: 'box' },
+        return (React.createElement("div", { className: 'box-123' },
             React.createElement("div", { className: 'content-123-left-10' }, param.contentLeft),
             React.createElement("div", { className: 'content-123-center-90 t-over' }, param.contentCenter)));
     }
     if (param.contentLeft && param.contentCenter && param.contentRight) {
-        return (React.createElement("div", { className: 'box' },
+        return (React.createElement("div", { className: 'box-123' },
             React.createElement("div", { className: 'content-123-left-10' }, param.contentLeft),
             React.createElement("div", { className: 'content-123-center-80 t-over' }, param.contentCenter),
             React.createElement("div", { className: 'content-123-right-10' }, param.contentRight)));
     }
     if (!param.contentLeft && param.contentCenter && param.contentRight) {
-        return (React.createElement("div", { className: 'box' },
+        return (React.createElement("div", { className: 'box-123' },
             React.createElement("div", { className: '  content-123-center-90 t-over' }, param.contentCenter),
             React.createElement("div", { className: 'content-123-right-10' }, param.contentRight)));
     }
     if (param.contentLeft && !param.contentCenter && !param.contentRight) {
-        return (React.createElement("div", { className: 'container' },
-            React.createElement("div", { className: 'center-icon' },
+        return (React.createElement("div", { className: 'container-123' },
+            React.createElement("div", { className: 'center-icon-123' },
                 React.createElement("div", { className: 'content-123-left-100' }, param.contentLeft))));
     }
     if (!param.contentLeft && !param.contentCenter && param.contentRight) {
-        return (React.createElement("div", { className: 'container' },
-            React.createElement("div", { className: 'center-icon' },
+        return (React.createElement("div", { className: 'container-123' },
+            React.createElement("div", { className: 'center-icon-123' },
                 React.createElement("div", { className: 'content-123-right-100' }, param.contentRight))));
     }
 }
