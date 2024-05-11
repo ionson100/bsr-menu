@@ -72,7 +72,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
     public readonly mRefMenu: React.RefObject<HTMLDivElement>;
     public readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
     public readonly mRefPopup: React.RefObject<HTMLDivElement>;
-    public readonly onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void
+    public readonly onClick?: (e: InstanceType<typeof MenuItem>) => void
     public readonly id: string;
     public stateDropMenu: boolean
     public _MyMenu: boolean
@@ -109,36 +109,34 @@ export const MenuItem = class extends Component<MyProps, MyState> {
     /**
      * HTMLDivElement menu
      */
-   public get menu():HTMLDivElement|null {
+    public get menu(): HTMLDivElement | null {
         return this.mRefMenu.current
     }
+
     /**
      * HTMLDivElement poopUp
      */
-   public get popUp():HTMLDivElement|null {
+    public get popUp(): HTMLDivElement | null {
         return this.mRefPopup.current;
     }
 
     /**
      * HTMLAnchorElement wrapper menu
      */
-   public get wrapper():HTMLAnchorElement|null {
+    public get wrapper(): HTMLAnchorElement | null {
         return this.mRefWrapper.current;
     }
 
-
     _resizeWindows() {
-
         if (this.mRefPopup.current!.style.visibility === "visible") {
             this._visibilityPane(true)
-
         }
     }
 
     _validateResizeRight(l: number) {
         const width = window.innerWidth
 
-        const rect = this.mRefPopup.current!.getBoundingClientRect();
+        const rect: DOMRect = this.mRefPopup.current!.getBoundingClientRect();
 
         const res: number = width - (rect.left + this.mRefPopup.current!.offsetWidth)
 
@@ -315,7 +313,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
             return;
         }
         if (Children.count(this.props.children) === 0) {
-            MyHub.hub.ClickSelect(this.state.tag, this.mRefMenu.current, this.onClick)
+            MyHub.hub.ClickSelect(this, this.onClick)
             return;
         }
         this._MyMenu = true;
@@ -331,7 +329,13 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                 myThis._visibilityPane(undefined)
             }
         }
-        MyHub.hub.MoveMenu(new ObserverItem({id: this.id, element: this.mRefPopup.current!, idRoot: this.context, elementMenu: this.mRefMenu.current!}), inner);
+
+        MyHub.hub.MoveMenu(new ObserverItem({
+            id: this.id,
+            element: this.mRefPopup.current!,
+            idRoot: this.context,
+            elementMenu: this.mRefMenu.current!
+        }), inner);
     }
 
     _movePopUp() {
@@ -356,7 +360,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * @constructor
      * @param  {boolean} value true-show, false-not show
      */
-    public setShow(value: boolean):void {
+    public setShow(value: boolean): void {
 
         if (!value) {
             this.mRefWrapper.current!.style.display = "none"
@@ -372,7 +376,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change disabled
      * @param  {boolean} value true-disable, false- not disable
      */
-    public setDisabled(value: boolean):void {
+    public setDisabled(value: boolean): void {
         if (value) {
             this.mRefWrapper.current!.style.cursor = 'not-allowed'
         } else {
@@ -388,7 +392,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Open menu
      * @function
      */
-    public open():void {
+    public open(): void {
         if (this.props.children) {
 
             this.stateDropMenu = true;
@@ -400,7 +404,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
             s.dropOpen = true;
             this.setState(s);
             if (this.props.onClick) {
-                this.props.onClick(this.state.tag, this.mRefMenu.current!, true)
+                this.props.onClick(this)
             }
         }
     }
@@ -409,7 +413,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * CloseMenu
      * @function
      */
-    public close():void {
+    public close(): void {
         this.stateDropMenu = false;
         this.mRefMenu.current!.classList.remove('drop-123-open')
         this.mRefPopup.current!.style.position = 'absolute'
@@ -419,7 +423,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
         s.dropOpen = false;
         this.setState(s);
         if (this.props.onClick) {
-            this.props.onClick(this.state.tag, this.mRefMenu.current!, false)
+            this.props.onClick(this)
         }
     }
 
@@ -429,7 +433,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * @param {any} content
      * @param  {any} contentRich
      */
-   public setContent(contentLeft?: any, content?: any, contentRich?: any):void {
+    public setContent(contentLeft?: any, content?: any, contentRich?: any): void {
         const s = Object.assign({}, this.state)
 
         // @ts-ignore
@@ -447,7 +451,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change url
      * @param {string} url
      */
-   public setUrl(url: string | undefined):void {
+    public setUrl(url: string | undefined): void {
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.url = url;
@@ -458,7 +462,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
      * Change tag
      * @param  {any} tag
      */
-    setTag(tag: any | undefined):void {
+    setTag(tag: any | undefined): void {
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.tag = tag;
@@ -506,7 +510,7 @@ export const MenuItem = class extends Component<MyProps, MyState> {
                                     iconDropOpen: this.props.iconDropOpen,
                                     iconDropClose: this.props.iconDropClose,
                                     isOpenDrop: this.state.dropOpen,
-                                    id:this.props.id,
+                                    id: this.props.id,
                                     tag: this.state.tag
                                 }
                             )

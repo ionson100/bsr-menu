@@ -1,4 +1,5 @@
 import React from "react";
+import {MenuItem} from "./menu_item";
  export interface ParamBuildContent{
     contentLeft: any,
     contentCenter: any,
@@ -43,7 +44,7 @@ export interface MyProps {
     /**Only for menu where positionPopup='dropDown'.*/
     iconDropClose: any,
 
-    onClick?: (tag: any, element: HTMLElement, isOpen: boolean | undefined) => void
+    onClick?: (e:InstanceType<typeof MenuItem>) => void
 
     /**css class submenu panel. default:'popup-123'.*/
     popupClassName?: string,

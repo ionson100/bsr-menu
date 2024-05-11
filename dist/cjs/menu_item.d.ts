@@ -18,7 +18,7 @@ export declare const MenuItem: {
         readonly mRefMenu: React.RefObject<HTMLDivElement>;
         readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
         readonly mRefPopup: React.RefObject<HTMLDivElement>;
-        readonly onClick?: ((tag: any, element: HTMLElement, isOpen: boolean | undefined) => void) | undefined;
+        readonly onClick?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
         readonly id: string;
         stateDropMenu: boolean;
         _MyMenu: boolean;

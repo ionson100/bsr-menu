@@ -1,3 +1,5 @@
+import {MenuItem} from "./menu_item";
+
 interface TypeObserver{
     id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement
 }
@@ -72,13 +74,13 @@ class MyObserver {
         o.element.style.visibility = 'hidden';
     }
 
-    ClickSelect(tag: any, element: any, funClick: any) {
+    ClickSelect(e:InstanceType<typeof MenuItem> , funClick: any) {
         this.listItem.forEach(a => {
             this._innerValue(a)
         })
         this._innerClearState()
         if (funClick) {
-            funClick(tag, element)
+            funClick(e)
         }
     }
 

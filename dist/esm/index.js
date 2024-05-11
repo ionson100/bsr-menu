@@ -3032,14 +3032,14 @@ var MyObserver = /** @class */ (function () {
         }
         o.element.style.visibility = 'hidden';
     };
-    MyObserver.prototype.ClickSelect = function (tag, element, funClick) {
+    MyObserver.prototype.ClickSelect = function (e, funClick) {
         var _this = this;
         this.listItem.forEach(function (a) {
             _this._innerValue(a);
         });
         this._innerClearState();
         if (funClick) {
-            funClick(tag, element);
+            funClick(e);
         }
     };
     MyObserver.prototype._innerClearState = function () {
@@ -3344,7 +3344,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 return;
             }
             if (reactExports.Children.count(this.props.children) === 0) {
-                MyHub.hub.ClickSelect(this.state.tag, this.mRefMenu.current, this.onClick);
+                MyHub.hub.ClickSelect(this, this.onClick);
                 return;
             }
             this._MyMenu = true;
@@ -3357,7 +3357,12 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                     myThis._visibilityPane(undefined);
                 }
             }
-            MyHub.hub.MoveMenu(new ObserverItem({ id: this.id, element: this.mRefPopup.current, idRoot: this.context, elementMenu: this.mRefMenu.current }), inner);
+            MyHub.hub.MoveMenu(new ObserverItem({
+                id: this.id,
+                element: this.mRefPopup.current,
+                idRoot: this.context,
+                elementMenu: this.mRefMenu.current
+            }), inner);
         };
         class_1.prototype._movePopUp = function () {
             this.mRefPopup.current.style.visibility = "visible";
@@ -3419,7 +3424,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 s.dropOpen = true;
                 this.setState(s);
                 if (this.props.onClick) {
-                    this.props.onClick(this.state.tag, this.mRefMenu.current, true);
+                    this.props.onClick(this);
                 }
             }
         };
@@ -3437,7 +3442,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             s.dropOpen = false;
             this.setState(s);
             if (this.props.onClick) {
-                this.props.onClick(this.state.tag, this.mRefMenu.current, false);
+                this.props.onClick(this);
             }
         };
         /**

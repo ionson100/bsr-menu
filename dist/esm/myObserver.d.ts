@@ -1,3 +1,4 @@
+import { MenuItem } from "./menu_item";
 interface TypeObserver {
     id: string;
     element: HTMLElement;
@@ -22,7 +23,7 @@ declare class MyObserver {
     Add(observerItem: any): void;
     _innerAdd(observerItem: any): void;
     _innerValue(o: any): void;
-    ClickSelect(tag: any, element: any, funClick: any): void;
+    ClickSelect(e: InstanceType<typeof MenuItem>, funClick: any): void;
     _innerClearState(): void;
     _hasList(item: any): boolean;
     MoveMenu(observerItem: any, action: any): void;
