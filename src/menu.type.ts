@@ -1,14 +1,14 @@
 import React from "react";
 import {MenuItem} from "./menu_item";
  export interface ParamBuildContent{
-    contentLeft: any,
-    contentCenter: any,
-    contentRight: any,
-    iconDropOpen: any,
-    iconDropClose: any,
-    isOpenDrop: boolean | undefined,
-    id: string | undefined,
-    tag: any
+    contentLeft?: any,
+    contentCenter?: any,
+    contentRight?: any,
+    iconDropOpen?: any,
+    iconDropClose?: any,
+    isOpenDrop?: boolean,
+    id?: string,
+    tag?: any
 }
 export interface MyProps {
     accessKey: string | undefined,
@@ -28,21 +28,21 @@ export interface MyProps {
     behavior: 'move' | 'click',
     /**css class menu. default: 'menu-123-item'.*/
     className?: string,
-    style: React.CSSProperties | undefined,
-    children: any,
+    style?: React.CSSProperties | undefined,
+    children?: any,
     /**The visual content of the menu consists of three horizontal areas: contentLeft - content - contentRight. Can be determined individually.*/
-    content: any,
+    content?: any,
     /**The visual content of the menu consists of three horizontal areas: contentLeft - content - contentRight. Can be determined individually.*/
-    contentLeft: any,
+    contentLeft?: any,
     /**The visual content of the menu consists of three horizontal areas: contentLeft - content - contentRight. Can be determined individually.*/
-    contentRight: any,
+    contentRight?: any,
     /**Sign of an disabled menu, boolean value, default: false*/
     disabled: boolean,
-    id: string | undefined,
+    id?: string ,
     /**Only for menu where positionPopup='dropDown'.*/
-    iconDropOpen: any,
+    iconDropOpen?: any,
     /**Only for menu where positionPopup='dropDown'.*/
-    iconDropClose: any,
+    iconDropClose?: any,
 
     onClick?: (e:InstanceType<typeof MenuItem>) => void
 
@@ -51,8 +51,8 @@ export interface MyProps {
     /**Position of the sub menu panel, can take value: ['down', 'top', 'downLeft', 'downRight', 'topRight', 'topLeft', 'dropDown','middleLeft','middleLeft3','middleLeft4','middleLeft5','middleRight','middleRight3','middleRight4','middleRight5']. Default:'down'*/
     positionPopup: 'down' | 'top' | 'downLeft' | 'downRight' | 'topRight' | 'topLeft' | 'dropDown' | 'middleLeft' | 'middleLeft3' | 'middleLeft4' | 'middleLeft5' | 'middleRight' | 'middleRight3' | 'middleRight4' | 'middleRight5',
     //style: stylePropType,
-    tabIndex: number | undefined,
-    title: string | undefined,
-    tag: any,
+    tabIndex?: number,
+    title?: string,
+    tag?: any,
     url?: string
 }

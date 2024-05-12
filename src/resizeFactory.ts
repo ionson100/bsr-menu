@@ -1,9 +1,12 @@
 
-export  const MapMenu=new Map();
+export  const MapMenu=new Map<string,ResizeAction>();
+export interface ResizeAction{
+    _resizeWindows:()=>void;
+}
 window.addEventListener('resize', function() {
- MapMenu.forEach((value,key)=>{
+ MapMenu.forEach((value)=>{
      if(value){
-        value._resizeWindows(key)
+        value._resizeWindows()
      }
  })
 }, true);

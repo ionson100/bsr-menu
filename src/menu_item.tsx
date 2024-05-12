@@ -3,8 +3,10 @@ import React, {Children, Component} from "react";
 import {v4 as uuidv4} from 'uuid';
 import buildContent from "./contentBuilder";
 import {ObserverItem, InstanceHub} from "./myObserver";
-import {MapMenu} from "./resizeFactory";
+import {MapMenu, ResizeAction} from "./resizeFactory";
 import {MyProps} from "./menu.type";
+
+
 
 interface MyState {
     disabled: boolean,
@@ -43,7 +45,7 @@ document.addEventListener("click", () => {
 });
 
 
-export const MenuItem = class extends Component<MyProps, MyState> {
+export const MenuItem = class extends Component<MyProps, MyState> implements ResizeAction {
 
 
     static defaultProps: MyProps = {
