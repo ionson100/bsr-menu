@@ -1,4 +1,4 @@
 
 // export default MenuItem;
-export {MenuItem,CloseMenu} from './menu_item';
+export * from './menu/menu_item';
 
