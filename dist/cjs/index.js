@@ -63,7 +63,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "\r\n\r\n\r\n/* styles menu core*/\r\n.menu-123-item {\r\n    height: 30px;\r\n    width: 200px;\r\n    cursor: pointer;\r\n}\r\n.menu-123-item:hover{\r\n    background: #fafaf7;\r\n}\r\n.menu-123-item:active{\r\n    background: #d5d2d2;\r\n}\r\n/*style disabled menu*/\r\ndiv[disabled]\r\n{\r\n    pointer-events: none;\r\n    opacity: 0.5;\r\n}\r\n/* override text */\r\n.t-over{\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    text-overflow:ellipsis;\r\n}\r\n/*style panel popup submenu*/\r\n.popup-123{\r\n    border: 1px solid #757474;\r\n    width: min-content;\r\n    background: white;\r\n}\r\n\r\n.container-123 {\r\n    height: 100%;\r\n    position: relative;\r\n}\r\n\r\n/*contents*/\r\n.content-123-left-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-80{\r\n    width: 80%;\r\n}\r\n.content-123-right-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-100{\r\n width: 100%;\r\n}\r\n.content-123-center-90{\r\n    width: 90%;\r\n}\r\n.content-123-left-100{\r\n}\r\n\r\n.content-123-right-100{\r\n}\r\n/*contents*/\r\n\r\n\r\n\r\n\r\n.vertical-center-123 {\r\n    width: 100%;\r\n    display: flex;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n/*usage only left or right container content  */\r\n.center-icon-123 {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    -ms-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n/*background selected root menu */\r\n.root-123-selected{\r\n    background: #d3cfcf;\r\n}\r\n/*background selected not root menu */\r\n.item-123-selected{\r\n    background: #e1dede;\r\n}\r\n\r\n.box-123 {\r\n    display: flex;\r\n    height: 100%;\r\n    align-content: space-around;\r\n    align-items: center;\r\n    flex-direction:row;\r\n    justify-content: center;\r\n}\r\n/*background menu dropDow*/\r\n.drop-123-open{\r\n    background: #c5c3c3;\r\n}\r\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\r\n{\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n";
+var css_248z = "\r\n\r\n\r\n/* styles menu core*/\r\n.menu-123-item {\r\n    height: 30px;\r\n    width: 200px;\r\n    cursor: pointer;\r\n}\r\n.menu-123-item:hover{\r\n    background: #fafaf7;\r\n}\r\n.menu-123-item:active{\r\n    background: #d5d2d2;\r\n}\r\n/*style disabled menu*/\r\ndiv[disabled]\r\n{\r\n    pointer-events: none;\r\n    opacity: 0.5;\r\n}\r\n/* override text */\r\n.t-over{\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    text-overflow:ellipsis;\r\n}\r\n/*style panel popup submenu*/\r\n.popup-123{\r\n    border: 1px solid #757474;\r\n    width: min-content;\r\n    background: white;\r\n    box-shadow: 3px 3px 3px #e5e1e1;\r\n\r\n}\r\n\r\n.container-123 {\r\n    height: 100%;\r\n    position: relative;\r\n}\r\n\r\n/*contents*/\r\n.content-123-left-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-80{\r\n    width: 80%;\r\n}\r\n.content-123-right-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-100{\r\n width: 100%;\r\n}\r\n.content-123-center-90{\r\n    width: 90%;\r\n}\r\n.content-123-left-100{\r\n}\r\n\r\n.content-123-right-100{\r\n}\r\n/*contents*/\r\n\r\n\r\n\r\n\r\n.vertical-center-123 {\r\n    width: 100%;\r\n    display: flex;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n/*usage only left or right container content  */\r\n.center-icon-123 {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    -ms-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n/*background selected root menu */\r\n.root-123-selected{\r\n    background: #d3cfcf;\r\n}\r\n/*background selected not root menu */\r\n.item-123-selected{\r\n    background: #e1dede;\r\n}\r\n\r\n.box-123 {\r\n    display: flex;\r\n    height: 100%;\r\n    align-content: space-around;\r\n    align-items: center;\r\n    flex-direction:row;\r\n    justify-content: center;\r\n}\r\n/*background menu dropDow*/\r\n.drop-123-open{\r\n    background: #c5c3c3;\r\n}\r\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\r\n{\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.is-close{\r\n    max-height: 0;\r\n    overflow: hidden;\r\n    transition: max-height 0.15s ease-out;\r\n}\r\n\r\n.is-open{\r\n    max-height: 1000px;\r\n    transition: max-height 0.25s ease-in;\r\n\r\n}\r\n\r\n";
 styleInject(css_248z);
 
 function getDefaultExportFromCjs (x) {
@@ -3127,7 +3127,6 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             _this.mRefWrapper = React.createRef();
             _this.mRefPopup = React.createRef();
             _this.onClick = _this.props.onClick;
-            _this.stateDropMenu = false;
             _this._MyMenu = _this.props.behavior === "move";
             _this.state =
                 {
@@ -3143,6 +3142,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 };
             _this._moveMenu = _this._moveMenu.bind(_this);
             _this._click = _this._click.bind(_this);
+            _this.poopUpHeight = 0;
             return _this;
         }
         /**
@@ -3335,6 +3335,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             }
         };
         class_1.prototype._click = function (e) {
+            // @ts-ignore
             e.stopPropagation();
             if (this.props.positionPopup === 'dropDown') {
                 if (this.state.dropOpen === false) {
@@ -3378,6 +3379,9 @@ var MenuItem = (_a = /** @class */ (function (_super) {
             this.mRefPopup.current.style.visibility = 'hidden';
             this.mRefPopup.current.style.zIndex = String(2);
             this.mRefMenu.current.style.display = 'block';
+            if (this.props.positionPopup === 'dropDown') {
+                this.mRefPopup.current.classList.add('is-close');
+            }
             MapMenu.set(this.id, this);
         };
         /**
@@ -3416,8 +3420,13 @@ var MenuItem = (_a = /** @class */ (function (_super) {
          * @function
          */
         class_1.prototype.open = function () {
+            var _this = this;
             if (this.props.children) {
-                this.stateDropMenu = true;
+                this.mRefPopup.current.classList.add("is-close");
+                this.mRefPopup.current.classList.add("is-open");
+                setTimeout(function () {
+                    _this.mRefPopup.current.classList.remove("is-close");
+                }, 100);
                 this.mRefMenu.current.classList.add('drop-123-open');
                 this.mRefPopup.current.style.position = 'relative';
                 this.mRefPopup.current.style.visibility = "visible";
@@ -3435,14 +3444,19 @@ var MenuItem = (_a = /** @class */ (function (_super) {
          * @function
          */
         class_1.prototype.close = function () {
-            this.stateDropMenu = false;
+            var _this = this;
+            this.mRefPopup.current.classList.add("is-close");
+            this.mRefPopup.current.classList.remove("is-open");
             this.mRefMenu.current.classList.remove('drop-123-open');
-            this.mRefPopup.current.style.position = 'absolute';
-            this.mRefPopup.current.style.visibility = "hidden";
+            setTimeout(function () {
+                _this.mRefPopup.current.style.position = 'absolute';
+                _this.mRefPopup.current.style.visibility = "hidden";
+            }, 120);
             var s = Object.assign({}, this.state);
             // @ts-ignore
             s.dropOpen = false;
             this.setState(s);
+            // console.log(this.mRefPopup.current!.classList)
             if (this.props.onClick) {
                 this.props.onClick(this);
             }
@@ -3486,7 +3500,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         class_1.prototype._getUrl = function () {
             if (this.props.positionPopup === 'dropDown') {
                 if (this.state.url) {
-                    return this.state.url + "&state=" + this.stateDropMenu;
+                    return "".concat(this.state.url, "&state=").concat(this.props.id ? "".concat(this.props.id, "-") : '').concat(this.state.dropOpen);
                 }
             }
             else {
@@ -3496,9 +3510,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         class_1.prototype.render = function () {
             return (React.createElement("object", null,
                 React.createElement("a", { href: this._getUrl(), "data-wrapper": 1, ref: this.mRefWrapper },
-                    React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, 
-                        // @ts-ignore
-                        onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, 
+                    React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, "data-user-123": this.props.dataUser, onClick: this._click, onMouseMove: this._moveMenu, onMouseDown: this.props.onMouseDown, onMouseDownCapture: this.props.onMouseDownCapture, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave, onMouseOut: this.props.onMouseOut, onMouseOutCapture: this.props.onMouseOutCapture, onMouseOver: this.props.onMouseOver, onMouseOverCapture: this.props.onMouseOverCapture, onMouseUp: this.props.onMouseUp, onMouseUpCapture: this.props.onMouseUpCapture, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, 
                         // @ts-ignore
                         disabled: this.state.disabled, className: this.props.className }, this.props.buildContent({
                         contentLeft: this.state.content.contentLeft,
@@ -3523,6 +3535,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         id: undefined,
         children: undefined,
         accessKey: undefined,
+        dataUser: undefined,
         onClick: undefined,
         contentRight: undefined,
         positionPopup: "down",
@@ -3537,6 +3550,16 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         iconDropClose: undefined,
         iconDropOpen: undefined,
         style: undefined,
+        onMouseDown: undefined,
+        onMouseDownCapture: undefined,
+        onMouseEnter: undefined,
+        onMouseLeave: undefined,
+        onMouseOut: undefined,
+        onMouseOutCapture: undefined,
+        onMouseOver: undefined,
+        onMouseOverCapture: undefined,
+        onMouseUp: undefined,
+        onMouseUpCapture: undefined,
     },
     _a);
 MenuItem.contextType = MyRootContext;

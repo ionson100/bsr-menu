@@ -19,8 +19,8 @@ export declare const MenuItem: {
         readonly mRefPopup: React.RefObject<HTMLDivElement>;
         readonly onClick?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
         readonly id: string;
-        stateDropMenu: boolean;
         _MyMenu: boolean;
+        poopUpHeight: number | undefined;
         /**
          * HTMLDivElement menu
          */
@@ -37,7 +37,7 @@ export declare const MenuItem: {
         _validateResizeRight(l: number): void;
         _validateResizeLeft(): void;
         _visibilityPane(resizeWindows: any): void;
-        _click(e: Event): void;
+        _click(e: React.MouseEvent): void;
         _moveMenu(): void;
         _movePopUp(): void;
         componentWillUnmount(): void;

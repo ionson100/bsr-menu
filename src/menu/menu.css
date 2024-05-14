@@ -30,6 +30,8 @@ div[disabled]
     border: 1px solid #757474;
     width: min-content;
     background: white;
+    box-shadow: 3px 3px 3px #e5e1e1;
+
 }
 
 .container-123 {
@@ -108,5 +110,17 @@ a[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wra
 {
     text-decoration: none;
     color: black;
+}
+
+.is-close{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.15s ease-out;
+}
+
+.is-open{
+    max-height: 1000px;
+    transition: max-height 0.25s ease-in;
+
 }
 

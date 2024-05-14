@@ -7,7 +7,6 @@ import {MapMenu, ResizeAction} from "./resizeFactory";
 import {MyProps} from "./menu.type";
 
 
-
 interface MyState {
     disabled: boolean,
     dropOpen: false,
@@ -23,12 +22,9 @@ interface MyState {
 const MyRootContext = React.createContext<string>('superRoot');
 
 
-
-
 const MyHub = {
     hub: InstanceHub
 }
-
 
 
 document.addEventListener("click", () => {
@@ -45,9 +41,10 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
      */
 
 
-    static CloseMenu(callback?: () => void){
+    static CloseMenu(callback?: () => void) {
         MyHub.hub.clearClick(callback)
     }
+
     static defaultProps: MyProps = {
         url: undefined,
         tag: undefined,
@@ -55,6 +52,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         id: undefined,
         children: undefined,
         accessKey: undefined,
+        dataUser: undefined,
 
         onClick: undefined,
         contentRight: undefined,
@@ -70,14 +68,28 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         iconDropClose: undefined,
         iconDropOpen: undefined,
         style: undefined,
+
+        onMouseDown: undefined,
+        onMouseDownCapture: undefined,
+        onMouseEnter: undefined,
+        onMouseLeave: undefined,
+        onMouseOut: undefined,
+        onMouseOutCapture: undefined,
+        onMouseOver: undefined,
+        onMouseOverCapture: undefined,
+        onMouseUp: undefined,
+        onMouseUpCapture: undefined,
+
     };
     public readonly mRefMenu: React.RefObject<HTMLDivElement>;
     public readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
     public readonly mRefPopup: React.RefObject<HTMLDivElement>;
     public readonly onClick?: (e: InstanceType<typeof MenuItem>) => void
     public readonly id: string;
-    public stateDropMenu: boolean
+
     public _MyMenu: boolean
+    public poopUpHeight: number | undefined;
+
 
     constructor(props: Readonly<MyProps>) {
         super(props);
@@ -86,7 +98,6 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         this.mRefWrapper = React.createRef<HTMLAnchorElement>();
         this.mRefPopup = React.createRef<HTMLDivElement>();
         this.onClick = this.props.onClick;
-        this.stateDropMenu = false;
 
 
         this._MyMenu = this.props.behavior === "move";
@@ -105,6 +116,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             }
         this._moveMenu = this._moveMenu.bind(this)
         this._click = this._click.bind(this)
+        this.poopUpHeight = 0;
 
     }
 
@@ -302,8 +314,9 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
     }
 
 
-    _click(e: Event) {
+    _click(e: React.MouseEvent) {
 
+        // @ts-ignore
         e.stopPropagation()
         if (this.props.positionPopup === 'dropDown') {
             if (this.state.dropOpen === false) {
@@ -349,11 +362,16 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
     }
 
     componentDidMount() {
+
         this.mRefPopup.current!.style.display = "block"
         this.mRefPopup.current!.style.position = 'absolute'
         this.mRefPopup.current!.style.visibility = 'hidden'
         this.mRefPopup.current!.style.zIndex = String(2);
         this.mRefMenu.current!.style.display = 'block'
+        if (this.props.positionPopup === 'dropDown') {
+            this.mRefPopup.current!.classList.add('is-close')
+
+        }
         MapMenu.set(this.id, this)
     }
 
@@ -396,8 +414,13 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
      */
     public open(): void {
         if (this.props.children) {
+            this.mRefPopup.current!.classList.add("is-close");
+            this.mRefPopup.current!.classList.add("is-open");
+            setTimeout(() => {
+                this.mRefPopup.current!.classList.remove("is-close");
+            }, 100)
 
-            this.stateDropMenu = true;
+
             this.mRefMenu.current!.classList.add('drop-123-open')
             this.mRefPopup.current!.style.position = 'relative'
             this.mRefPopup.current!.style.visibility = "visible"
@@ -408,6 +431,8 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             if (this.props.onClick) {
                 this.props.onClick(this)
             }
+
+
         }
     }
 
@@ -416,14 +441,20 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
      * @function
      */
     public close(): void {
-        this.stateDropMenu = false;
+        this.mRefPopup.current!.classList.add("is-close");
+        this.mRefPopup.current!.classList.remove("is-open");
         this.mRefMenu.current!.classList.remove('drop-123-open')
-        this.mRefPopup.current!.style.position = 'absolute'
-        this.mRefPopup.current!.style.visibility = "hidden"
+        setTimeout(() => {
+            this.mRefPopup.current!.style.position = 'absolute'
+            this.mRefPopup.current!.style.visibility = "hidden"
+        }, 120)
+
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.dropOpen = false;
         this.setState(s);
+        // console.log(this.mRefPopup.current!.classList)
+
         if (this.props.onClick) {
             this.props.onClick(this)
         }
@@ -476,7 +507,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         if (this.props.positionPopup === 'dropDown') {
 
             if (this.state.url) {
-                return this.state.url + "&state=" + this.stateDropMenu
+                return `${this.state.url}&state=${this.props.id ? `${this.props.id}-` : ''}${this.state.dropOpen}`
             }
         } else {
             return this.state.url;
@@ -486,15 +517,29 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
 
     render() {
 
+
         return (
             <object>
                 <a href={this._getUrl()} data-wrapper={1} ref={this.mRefWrapper}>
                     <div ref={this.mRefMenu}
                          style={this.props.style}
                          id={this.props.id}
-                        // @ts-ignore
+                         data-user-123={this.props.dataUser}
                          onClick={this._click}
                          onMouseMove={this._moveMenu}
+
+                         onMouseDown={this.props.onMouseDown}
+                         onMouseDownCapture={this.props.onMouseDownCapture}
+                         onMouseEnter={this.props.onMouseEnter}
+                         onMouseLeave={this.props.onMouseLeave}
+                         onMouseOut={this.props.onMouseOut}
+                         onMouseOutCapture={this.props.onMouseOutCapture}
+                         onMouseOver={this.props.onMouseOver}
+                         onMouseOverCapture={this.props.onMouseOverCapture}
+                         onMouseUp={this.props.onMouseUp}
+                         onMouseUpCapture={this.props.onMouseUpCapture}
+
+
                          accessKey={this.props.accessKey}
                          title={this.props.title}
                          tabIndex={this.props.tabIndex}

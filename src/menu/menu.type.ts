@@ -1,4 +1,4 @@
-import React from "react";
+import React, {MouseEventHandler} from "react";
 import {MenuItem} from "./menu_item";
  export interface ParamBuildContent{
     contentLeft?: any,
@@ -28,6 +28,7 @@ export interface MyProps {
     behavior: 'move' | 'click',
     /**css class menu. default: 'menu-123-item'.*/
     className?: string,
+    dataUser?:string,
     style?: React.CSSProperties | undefined,
     children?: any,
     /**The visual content of the menu consists of three horizontal areas: contentLeft - content - contentRight. Can be determined individually.*/
@@ -55,4 +56,17 @@ export interface MyProps {
     title?: string,
     tag?: any,
     url?: string
+
+
+    onMouseDown?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseDownCapture?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseEnter?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseLeave?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseOut?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseOutCapture?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseOver?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseOverCapture?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseUp?: MouseEventHandler<HTMLDivElement> | undefined;
+    onMouseUpCapture?: MouseEventHandler<HTMLDivElement> | undefined;
+
 }
