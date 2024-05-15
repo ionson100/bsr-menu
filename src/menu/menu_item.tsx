@@ -79,6 +79,8 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         onMouseOverCapture: undefined,
         onMouseUp: undefined,
         onMouseUpCapture: undefined,
+        onVisible:undefined,
+        popupStyle:undefined
 
     };
     public readonly mRefMenu: React.RefObject<HTMLDivElement>;
@@ -88,7 +90,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
     public readonly id: string;
 
     public _MyMenu: boolean
-    public poopUpHeight: number | undefined;
+    public popUpHeight: number | undefined;
 
 
     constructor(props: Readonly<MyProps>) {
@@ -116,7 +118,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             }
         this._moveMenu = this._moveMenu.bind(this)
         this._click = this._click.bind(this)
-        this.poopUpHeight = 0;
+        this.popUpHeight = 0;
 
     }
 
@@ -128,7 +130,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
     }
 
     /**
-     * HTMLDivElement poopUp
+     * HTMLDivElement popUp
      */
     public get popUp(): HTMLDivElement | null {
         return this.mRefPopup.current;
@@ -307,9 +309,18 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
 
 
         if (this.props.children) {
-            MyHub.hub.Add(new ObserverItem({id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU}))
+            MyHub.hub.Add(new ObserverItem({
+                id: this.id,
+                element: POPUP,
+                idRoot: this.context,
+                elementMenu: MENU,
+                isDrop:this.props.positionPopup==='dropDown'
+            }))
             POPUP.style.visibility = "visible"
             POPUP.style.display = "block"
+            if(this.props.onVisible&&!resizeWindows){
+                this.props.onVisible(this);
+            }
         }
     }
 
@@ -337,6 +348,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
 
     _moveMenu() {
 
+
         const myThis = this;
 
         function inner() {
@@ -345,11 +357,13 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             }
         }
 
+
         MyHub.hub.MoveMenu(new ObserverItem({
             id: this.id,
             element: this.mRefPopup.current!,
             idRoot: this.context,
-            elementMenu: this.mRefMenu.current!
+            elementMenu: this.mRefMenu.current!,
+            isDrop:this.props.positionPopup==='dropDown'
         }), inner);
     }
 
@@ -430,6 +444,9 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             this.setState(s);
             if (this.props.onClick) {
                 this.props.onClick(this)
+            }
+            if(this.props.onVisible){
+                this.props.onVisible(this);
             }
 
 
@@ -564,7 +581,8 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
                         }
                     </div>
                     <div
-                        data-memu-poopup={this.state.tag}
+                        style={this.props.popupStyle}
+                        data-memu-popup={this.state.tag}
                         // @ts-ignore
                         disabled={this.state.disabled}
                         onMouseMove={this._movePopUp.bind(this)}

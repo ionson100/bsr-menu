@@ -45,8 +45,10 @@ export interface MyProps {
     /**Only for menu where positionPopup='dropDown'.*/
     iconDropClose?: any;
     onClick?: (e: InstanceType<typeof MenuItem>) => void;
+    onVisible?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
     /**css class submenu panel. default:'popup-123'.*/
     popupClassName?: string;
+    popupStyle?: React.CSSProperties | undefined;
     /**Position of the sub menu panel, can take value: ['down', 'top', 'downLeft', 'downRight', 'topRight', 'topLeft', 'dropDown','middleLeft','middleLeft3','middleLeft4','middleLeft5','middleRight','middleRight3','middleRight4','middleRight5']. Default:'down'*/
     positionPopup: 'down' | 'top' | 'downLeft' | 'downRight' | 'topRight' | 'topLeft' | 'dropDown' | 'middleLeft' | 'middleLeft3' | 'middleLeft4' | 'middleLeft5' | 'middleRight' | 'middleRight3' | 'middleRight4' | 'middleRight5';
     tabIndex?: number;

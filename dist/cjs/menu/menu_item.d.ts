@@ -20,13 +20,13 @@ export declare const MenuItem: {
         readonly onClick?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
         readonly id: string;
         _MyMenu: boolean;
-        poopUpHeight: number | undefined;
+        popUpHeight: number | undefined;
         /**
          * HTMLDivElement menu
          */
         readonly menu: HTMLDivElement | null;
         /**
-         * HTMLDivElement poopUp
+         * HTMLDivElement popUp
          */
         readonly popUp: HTMLDivElement | null;
         /**

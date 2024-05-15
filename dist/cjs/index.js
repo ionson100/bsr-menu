@@ -63,7 +63,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "\r\n\r\n\r\n/* styles menu core*/\r\n.menu-123-item {\r\n    height: 30px;\r\n    width: 200px;\r\n    cursor: pointer;\r\n}\r\n.menu-123-item:hover{\r\n    background: #fafaf7;\r\n}\r\n.menu-123-item:active{\r\n    background: #d5d2d2;\r\n}\r\n/*style disabled menu*/\r\ndiv[disabled]\r\n{\r\n    pointer-events: none;\r\n    opacity: 0.5;\r\n}\r\n/* override text */\r\n.t-over{\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    text-overflow:ellipsis;\r\n}\r\n/*style panel popup submenu*/\r\n.popup-123{\r\n    border: 1px solid #757474;\r\n    width: min-content;\r\n    background: white;\r\n    box-shadow: 3px 3px 3px #e5e1e1;\r\n\r\n}\r\n\r\n.container-123 {\r\n    height: 100%;\r\n    position: relative;\r\n}\r\n\r\n/*contents*/\r\n.content-123-left-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-80{\r\n    width: 80%;\r\n}\r\n.content-123-right-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-100{\r\n width: 100%;\r\n}\r\n.content-123-center-90{\r\n    width: 90%;\r\n}\r\n.content-123-left-100{\r\n}\r\n\r\n.content-123-right-100{\r\n}\r\n/*contents*/\r\n\r\n\r\n\r\n\r\n.vertical-center-123 {\r\n    width: 100%;\r\n    display: flex;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n/*usage only left or right container content  */\r\n.center-icon-123 {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    -ms-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n/*background selected root menu */\r\n.root-123-selected{\r\n    background: #d3cfcf;\r\n}\r\n/*background selected not root menu */\r\n.item-123-selected{\r\n    background: #e1dede;\r\n}\r\n\r\n.box-123 {\r\n    display: flex;\r\n    height: 100%;\r\n    align-content: space-around;\r\n    align-items: center;\r\n    flex-direction:row;\r\n    justify-content: center;\r\n}\r\n/*background menu dropDow*/\r\n.drop-123-open{\r\n    background: #c5c3c3;\r\n}\r\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\r\n{\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.is-close{\r\n    max-height: 0;\r\n    overflow: hidden;\r\n    transition: max-height 0.15s ease-out;\r\n}\r\n\r\n.is-open{\r\n    max-height: 1000px;\r\n    transition: max-height 0.25s ease-in;\r\n\r\n}\r\n\r\n";
+var css_248z = "\r\n\r\n\r\n/* styles menu core*/\r\n.menu-123-item {\r\n    height: 30px;\r\n    width: 200px;\r\n    cursor: pointer;\r\n}\r\n.menu-123-item:hover{\r\n    background: #fafaf7;\r\n}\r\n.menu-123-item:active{\r\n    background: #d5d2d2;\r\n}\r\n/*style disabled menu*/\r\ndiv[disabled]\r\n{\r\n    pointer-events: none;\r\n    opacity: 0.5;\r\n}\r\n/* override text */\r\n.t-over{\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    text-overflow:ellipsis;\r\n}\r\n/*style panel popup submenu*/\r\n.popup-123{\r\n    border: 1px solid #757474;\r\n    width: min-content;\r\n    background: white;\r\n    /*box-shadow: 3px 3px 3px #e5e1e1;*/\r\n\r\n}\r\n\r\n.container-123 {\r\n    height: 100%;\r\n    position: relative;\r\n}\r\n\r\n/*contents*/\r\n.content-123-left-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-80{\r\n    width: 80%;\r\n}\r\n.content-123-right-10{\r\n    text-align: center;\r\n    width: 10%;\r\n}\r\n.content-123-center-100{\r\n width: 100%;\r\n}\r\n.content-123-center-90{\r\n    width: 90%;\r\n}\r\n.content-123-left-100{\r\n}\r\n\r\n.content-123-right-100{\r\n}\r\n/*contents*/\r\n\r\n\r\n\r\n\r\n.vertical-center-123 {\r\n    width: 100%;\r\n    display: flex;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n/*usage only left or right container content  */\r\n.center-icon-123 {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    -ms-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n/*background selected root menu */\r\n.root-123-selected{\r\n    background: #d3cfcf;\r\n}\r\n/*background selected not root menu */\r\n.item-123-selected{\r\n    background: #e1dede;\r\n}\r\n\r\n.box-123 {\r\n    display: flex;\r\n    height: 100%;\r\n    align-content: space-around;\r\n    align-items: center;\r\n    flex-direction:row;\r\n    justify-content: center;\r\n}\r\n/*background menu dropDow*/\r\n.drop-123-open{\r\n    background: #c5c3c3;\r\n}\r\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\r\n{\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.is-close{\r\n    max-height: 0;\r\n    overflow: hidden;\r\n    transition: max-height 0.15s ease-out;\r\n}\r\n\r\n.is-open{\r\n    max-height: 2000px;\r\n    transition: max-height 0.25s ease-in;\r\n\r\n}\r\n\r\n";
 styleInject(css_248z);
 
 function getDefaultExportFromCjs (x) {
@@ -2989,6 +2989,7 @@ var ObserverItem = /** @class */ (function () {
         this.element = param.element;
         this.idRoot = param.idRoot;
         this.elementMenu = param.elementMenu;
+        this.isDrop = param.isDrop;
     }
     return ObserverItem;
 }());
@@ -3035,11 +3036,11 @@ var MyObserver = /** @class */ (function () {
         o.element.style.visibility = 'hidden';
     };
     MyObserver.prototype.ClickSelect = function (e, funClick) {
-        var _this = this;
-        this.listItem.forEach(function (a) {
-            _this._innerValue(a);
-        });
-        this._innerClearState();
+        this.actionInvisible();
+        // this.listItem.forEach(a => {
+        //     this._innerValue(a)
+        // })
+        //  this._innerClearState()
         if (funClick) {
             funClick(e);
         }
@@ -3075,10 +3076,11 @@ var MyObserver = /** @class */ (function () {
                 }
             }
         });
-        this.listItem.forEach(function (a) {
-            _this._innerValue(a);
-        });
-        this._innerClearState();
+        this.actionInvisible();
+        // this.listItem.forEach(a => {
+        //     this._innerValue(a)
+        // })
+        //this._innerClearState()
         tempListRoot.forEach(function (e) {
             _this._innerAdd(e);
         });
@@ -3087,12 +3089,23 @@ var MyObserver = /** @class */ (function () {
             action.call();
         }
     };
-    MyObserver.prototype.clearClick = function (callback) {
-        var _this = this;
-        this.listItem.forEach(function (a) {
-            _this._innerValue(a);
-        });
+    MyObserver.prototype.actionInvisible = function () {
+        for (var i = 0; i < this.listItem.length; i++) {
+            if (this.listItem[0].isDrop === true) {
+                i++;
+                continue;
+            }
+            this._innerValue(this.listItem[i]);
+        }
         this._innerClearState();
+    };
+    MyObserver.prototype.clearClick = function (callback) {
+        this.actionInvisible();
+        // this.listItem.forEach(a => {
+        //     this._innerValue(a)
+        // })
+        //
+        // this._innerClearState()
         if (callback) {
             callback();
         }
@@ -3142,7 +3155,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 };
             _this._moveMenu = _this._moveMenu.bind(_this);
             _this._click = _this._click.bind(_this);
-            _this.poopUpHeight = 0;
+            _this.popUpHeight = 0;
             return _this;
         }
         /**
@@ -3165,7 +3178,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         });
         Object.defineProperty(class_1.prototype, "popUp", {
             /**
-             * HTMLDivElement poopUp
+             * HTMLDivElement popUp
              */
             get: function () {
                 return this.mRefPopup.current;
@@ -3329,9 +3342,18 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 }
             }
             if (this.props.children) {
-                MyHub.hub.Add(new ObserverItem({ id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU }));
+                MyHub.hub.Add(new ObserverItem({
+                    id: this.id,
+                    element: POPUP,
+                    idRoot: this.context,
+                    elementMenu: MENU,
+                    isDrop: this.props.positionPopup === 'dropDown'
+                }));
                 POPUP.style.visibility = "visible";
                 POPUP.style.display = "block";
+                if (this.props.onVisible && !resizeWindows) {
+                    this.props.onVisible(this);
+                }
             }
         };
         class_1.prototype._click = function (e) {
@@ -3364,7 +3386,8 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 id: this.id,
                 element: this.mRefPopup.current,
                 idRoot: this.context,
-                elementMenu: this.mRefMenu.current
+                elementMenu: this.mRefMenu.current,
+                isDrop: this.props.positionPopup === 'dropDown'
             }), inner);
         };
         class_1.prototype._movePopUp = function () {
@@ -3436,6 +3459,9 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                 this.setState(s);
                 if (this.props.onClick) {
                     this.props.onClick(this);
+                }
+                if (this.props.onVisible) {
+                    this.props.onVisible(this);
                 }
             }
         };
@@ -3522,7 +3548,7 @@ var MenuItem = (_a = /** @class */ (function (_super) {
                         id: this.props.id,
                         tag: this.state.tag
                     })),
-                    React.createElement("div", { "data-memu-poopup": this.state.tag, 
+                    React.createElement("div", { style: this.props.popupStyle, "data-memu-popup": this.state.tag, 
                         // @ts-ignore
                         disabled: this.state.disabled, onMouseMove: this._movePopUp.bind(this), ref: this.mRefPopup, className: this.props.popupClassName }, this.props.children === undefined ? (React.createElement("div", null)) : (React.createElement(MyRootContext.Provider, { value: this.id }, this.props.children))))));
         };
@@ -3560,6 +3586,8 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         onMouseOverCapture: undefined,
         onMouseUp: undefined,
         onMouseUpCapture: undefined,
+        onVisible: undefined,
+        popupStyle: undefined
     },
     _a);
 MenuItem.contextType = MyRootContext;
