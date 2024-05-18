@@ -1,6 +1,6 @@
 {
   "name": "bsr-menu",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Made with rollup",
   "author": "ionson100",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "README.md"
   ],
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "private": true,
   "dependencies": {
