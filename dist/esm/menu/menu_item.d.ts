@@ -34,7 +34,7 @@ export default class MenuItem extends Component<MyProps, MyState> implements Res
      */
     get menu(): HTMLDivElement | null;
     /**
-     * HTMLDivElement poopUp
+     * HTMLDivElement popUp
      */
     get popUp(): HTMLDivElement | null;
     /**

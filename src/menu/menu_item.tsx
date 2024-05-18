@@ -121,7 +121,7 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
     }
 
     /**
-     * HTMLDivElement poopUp
+     * HTMLDivElement popUp
      */
     public get popUp(): HTMLDivElement | null {
         return this.mRefPopup.current;
@@ -524,7 +524,7 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
                         }
                     </div>
                     <div
-                        data-memu-poopup={this.state.tag}
+                        data-memu-popup={this.state.tag}
                         // @ts-ignore
                         disabled={this.state.disabled}
                         onMouseMove={this._movePopUp.bind(this)}

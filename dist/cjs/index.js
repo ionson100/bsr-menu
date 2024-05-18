@@ -2576,7 +2576,7 @@ var MenuItem = /** @class */ (function (_super) {
     });
     Object.defineProperty(MenuItem.prototype, "popUp", {
         /**
-         * HTMLDivElement poopUp
+         * HTMLDivElement popUp
          */
         get: function () {
             return this.mRefPopup.current;
@@ -2921,7 +2921,7 @@ var MenuItem = /** @class */ (function (_super) {
                     id: this.props.id,
                     tag: this.state.tag
                 })),
-                React.createElement("div", { "data-memu-poopup": this.state.tag, 
+                React.createElement("div", { "data-memu-popup": this.state.tag, 
                     // @ts-ignore
                     disabled: this.state.disabled, onMouseMove: this._movePopUp.bind(this), ref: this.mRefPopup, className: this.props.popupClassName }, this.props.children === undefined ? (React.createElement("div", null)) : (React.createElement(MyRootContext.Provider, { value: this.id }, this.props.children))))));
     };

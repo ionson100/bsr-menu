@@ -90,7 +90,7 @@ declare class MenuItem extends Component<MyProps, MyState> implements ResizeActi
      */
     get menu(): HTMLDivElement | null;
     /**
-     * HTMLDivElement poopUp
+     * HTMLDivElement popUp
      */
     get popUp(): HTMLDivElement | null;
     /**
