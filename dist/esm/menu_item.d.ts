@@ -12,6 +12,7 @@ interface MyState {
     url?: string;
     tag: any;
 }
+export declare function CloseMenu(callback?: () => void): void;
 export declare const MenuItem: {
     new (props: Readonly<MyProps>): {
         readonly mRefMenu: React.RefObject<HTMLDivElement>;
@@ -19,14 +20,14 @@ export declare const MenuItem: {
         readonly mRefPopup: React.RefObject<HTMLDivElement>;
         readonly onClick?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
         readonly id: string;
+        stateDropMenu: boolean;
         _MyMenu: boolean;
-        popUpHeight: number | undefined;
         /**
          * HTMLDivElement menu
          */
         readonly menu: HTMLDivElement | null;
         /**
-         * HTMLDivElement popUp
+         * HTMLDivElement poopUp
          */
         readonly popUp: HTMLDivElement | null;
         /**
@@ -37,7 +38,7 @@ export declare const MenuItem: {
         _validateResizeRight(l: number): void;
         _validateResizeLeft(): void;
         _visibilityPane(resizeWindows: any): void;
-        _click(e: React.MouseEvent): void;
+        _click(e: Event): void;
         _moveMenu(): void;
         _movePopUp(): void;
         componentWillUnmount(): void;
@@ -103,12 +104,6 @@ export declare const MenuItem: {
         componentWillUpdate?(nextProps: Readonly<MyProps>, nextState: Readonly<MyState>, nextContext: any): void;
         UNSAFE_componentWillUpdate?(nextProps: Readonly<MyProps>, nextState: Readonly<MyState>, nextContext: any): void;
     };
-    /**
-     * Close all open menu
-     * @param callback
-     * @constructor
-     */
-    CloseMenu(callback?: () => void): void;
     defaultProps: MyProps;
     contextType?: React.Context<any> | undefined;
 };

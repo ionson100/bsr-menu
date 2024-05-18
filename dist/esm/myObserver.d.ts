@@ -4,14 +4,12 @@ interface TypeObserver {
     element: HTMLElement;
     idRoot: any;
     elementMenu: HTMLElement;
-    isDrop: boolean;
 }
 export declare class ObserverItem {
-    id: string;
-    element: HTMLElement;
-    idRoot: string;
-    elementMenu: HTMLElement;
-    isDrop: boolean;
+    private id;
+    private element;
+    private idRoot;
+    private elementMenu;
     constructor(param: TypeObserver);
 }
 declare class MyObserver {
@@ -24,12 +22,11 @@ declare class MyObserver {
     constructor(classRoot: string, classItem: string);
     Add(observerItem: any): void;
     _innerAdd(observerItem: any): void;
-    _innerValue(o: ObserverItem): void;
+    _innerValue(o: any): void;
     ClickSelect(e: InstanceType<typeof MenuItem>, funClick: any): void;
     _innerClearState(): void;
     _hasList(item: any): boolean;
-    MoveMenu(observerItem: ObserverItem, action: any): void;
-    actionInvisible(): void;
+    MoveMenu(observerItem: any, action: any): void;
     clearClick(callback?: () => void): void;
 }
 export declare const InstanceHub: MyObserver;

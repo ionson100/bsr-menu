@@ -7,6 +7,7 @@ import {MapMenu, ResizeAction} from "./resizeFactory";
 import {MyProps} from "./menu.type";
 
 
+
 interface MyState {
     disabled: boolean,
     dropOpen: false,
@@ -22,9 +23,20 @@ interface MyState {
 const MyRootContext = React.createContext<string>('superRoot');
 
 
+export function CloseMenu(callback?: () => void) {
+    MyHub.hub.clearClick(callback)
+}
+
+
 const MyHub = {
     hub: InstanceHub
 }
+
+/**
+ * Close all open menu
+ * @param callback
+ * @constructor
+ */
 
 
 document.addEventListener("click", () => {
@@ -34,16 +46,7 @@ document.addEventListener("click", () => {
 
 
 export const MenuItem = class extends Component<MyProps, MyState> implements ResizeAction {
-    /**
-     * Close all open menu
-     * @param callback
-     * @constructor
-     */
 
-
-    static CloseMenu(callback?: () => void) {
-        MyHub.hub.clearClick(callback)
-    }
 
     static defaultProps: MyProps = {
         url: undefined,
@@ -52,7 +55,6 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         id: undefined,
         children: undefined,
         accessKey: undefined,
-        dataUser: undefined,
 
         onClick: undefined,
         contentRight: undefined,
@@ -68,30 +70,14 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         iconDropClose: undefined,
         iconDropOpen: undefined,
         style: undefined,
-
-        onMouseDown: undefined,
-        onMouseDownCapture: undefined,
-        onMouseEnter: undefined,
-        onMouseLeave: undefined,
-        onMouseOut: undefined,
-        onMouseOutCapture: undefined,
-        onMouseOver: undefined,
-        onMouseOverCapture: undefined,
-        onMouseUp: undefined,
-        onMouseUpCapture: undefined,
-        onVisible:undefined,
-        popupStyle:undefined
-
     };
     public readonly mRefMenu: React.RefObject<HTMLDivElement>;
     public readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
     public readonly mRefPopup: React.RefObject<HTMLDivElement>;
     public readonly onClick?: (e: InstanceType<typeof MenuItem>) => void
     public readonly id: string;
-
+    public stateDropMenu: boolean
     public _MyMenu: boolean
-    public popUpHeight: number | undefined;
-
 
     constructor(props: Readonly<MyProps>) {
         super(props);
@@ -100,6 +86,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         this.mRefWrapper = React.createRef<HTMLAnchorElement>();
         this.mRefPopup = React.createRef<HTMLDivElement>();
         this.onClick = this.props.onClick;
+        this.stateDropMenu = false;
 
 
         this._MyMenu = this.props.behavior === "move";
@@ -118,7 +105,6 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             }
         this._moveMenu = this._moveMenu.bind(this)
         this._click = this._click.bind(this)
-        this.popUpHeight = 0;
 
     }
 
@@ -130,7 +116,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
     }
 
     /**
-     * HTMLDivElement popUp
+     * HTMLDivElement poopUp
      */
     public get popUp(): HTMLDivElement | null {
         return this.mRefPopup.current;
@@ -309,28 +295,18 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
 
 
         if (this.props.children) {
-            MyHub.hub.Add(new ObserverItem({
-                id: this.id,
-                element: POPUP,
-                idRoot: this.context,
-                elementMenu: MENU,
-                isDrop:this.props.positionPopup==='dropDown'
-            }))
+            MyHub.hub.Add(new ObserverItem({id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU}))
             POPUP.style.visibility = "visible"
             POPUP.style.display = "block"
-            if(this.props.onVisible&&!resizeWindows){
-                this.props.onVisible(this);
-            }
         }
     }
 
 
-    _click(e: React.MouseEvent) {
+    _click(e: Event) {
 
-        // @ts-ignore
         e.stopPropagation()
         if (this.props.positionPopup === 'dropDown') {
-            if (this.state.dropOpen === false) {
+            if (!this.state.dropOpen) {
                 this.open()
             } else if (this.state.dropOpen === true) {
                 this.close()
@@ -348,7 +324,6 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
 
     _moveMenu() {
 
-
         const myThis = this;
 
         function inner() {
@@ -357,13 +332,11 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             }
         }
 
-
         MyHub.hub.MoveMenu(new ObserverItem({
             id: this.id,
             element: this.mRefPopup.current!,
             idRoot: this.context,
-            elementMenu: this.mRefMenu.current!,
-            isDrop:this.props.positionPopup==='dropDown'
+            elementMenu: this.mRefMenu.current!
         }), inner);
     }
 
@@ -376,16 +349,11 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
     }
 
     componentDidMount() {
-
         this.mRefPopup.current!.style.display = "block"
         this.mRefPopup.current!.style.position = 'absolute'
         this.mRefPopup.current!.style.visibility = 'hidden'
         this.mRefPopup.current!.style.zIndex = String(2);
         this.mRefMenu.current!.style.display = 'block'
-        if (this.props.positionPopup === 'dropDown') {
-            this.mRefPopup.current!.classList.add('is-close')
-
-        }
         MapMenu.set(this.id, this)
     }
 
@@ -428,13 +396,8 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
      */
     public open(): void {
         if (this.props.children) {
-            this.mRefPopup.current!.classList.add("is-close");
-            this.mRefPopup.current!.classList.add("is-open");
-            setTimeout(() => {
-                this.mRefPopup.current!.classList.remove("is-close");
-            }, 100)
 
-
+            this.stateDropMenu = true;
             this.mRefMenu.current!.classList.add('drop-123-open')
             this.mRefPopup.current!.style.position = 'relative'
             this.mRefPopup.current!.style.visibility = "visible"
@@ -445,11 +408,6 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
             if (this.props.onClick) {
                 this.props.onClick(this)
             }
-            if(this.props.onVisible){
-                this.props.onVisible(this);
-            }
-
-
         }
     }
 
@@ -458,20 +416,14 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
      * @function
      */
     public close(): void {
-        this.mRefPopup.current!.classList.add("is-close");
-        this.mRefPopup.current!.classList.remove("is-open");
+        this.stateDropMenu = false;
         this.mRefMenu.current!.classList.remove('drop-123-open')
-        setTimeout(() => {
-            this.mRefPopup.current!.style.position = 'absolute'
-            this.mRefPopup.current!.style.visibility = "hidden"
-        }, 120)
-
+        this.mRefPopup.current!.style.position = 'absolute'
+        this.mRefPopup.current!.style.visibility = "hidden"
         const s = Object.assign({}, this.state)
         // @ts-ignore
         s.dropOpen = false;
         this.setState(s);
-        // console.log(this.mRefPopup.current!.classList)
-
         if (this.props.onClick) {
             this.props.onClick(this)
         }
@@ -524,7 +476,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
         if (this.props.positionPopup === 'dropDown') {
 
             if (this.state.url) {
-                return `${this.state.url}&state=${this.props.id ? `${this.props.id}-` : ''}${this.state.dropOpen}`
+                return this.state.url + "&state=" + this.stateDropMenu
             }
         } else {
             return this.state.url;
@@ -534,29 +486,15 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
 
     render() {
 
-
         return (
             <object>
                 <a href={this._getUrl()} data-wrapper={1} ref={this.mRefWrapper}>
                     <div ref={this.mRefMenu}
                          style={this.props.style}
                          id={this.props.id}
-                         data-user-123={this.props.dataUser}
+                        // @ts-ignore
                          onClick={this._click}
                          onMouseMove={this._moveMenu}
-
-                         onMouseDown={this.props.onMouseDown}
-                         onMouseDownCapture={this.props.onMouseDownCapture}
-                         onMouseEnter={this.props.onMouseEnter}
-                         onMouseLeave={this.props.onMouseLeave}
-                         onMouseOut={this.props.onMouseOut}
-                         onMouseOutCapture={this.props.onMouseOutCapture}
-                         onMouseOver={this.props.onMouseOver}
-                         onMouseOverCapture={this.props.onMouseOverCapture}
-                         onMouseUp={this.props.onMouseUp}
-                         onMouseUpCapture={this.props.onMouseUpCapture}
-
-
                          accessKey={this.props.accessKey}
                          title={this.props.title}
                          tabIndex={this.props.tabIndex}
@@ -581,8 +519,7 @@ export const MenuItem = class extends Component<MyProps, MyState> implements Res
                         }
                     </div>
                     <div
-                        style={this.props.popupStyle}
-                        data-memu-popup={this.state.tag}
+                        data-memu-poopup={this.state.tag}
                         // @ts-ignore
                         disabled={this.state.disabled}
                         onMouseMove={this._movePopUp.bind(this)}

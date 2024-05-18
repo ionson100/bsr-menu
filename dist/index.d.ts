@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 
 interface ParamBuildContent {
     contentLeft?: any;
@@ -28,7 +28,6 @@ interface MyProps {
     behavior: 'move' | 'click';
     /**css class menu. default: 'menu-123-item'.*/
     className?: string;
-    dataUser?: string;
     style?: React.CSSProperties | undefined;
     children?: any;
     /**The visual content of the menu consists of three horizontal areas: contentLeft - content - contentRight. Can be determined individually.*/
@@ -45,26 +44,14 @@ interface MyProps {
     /**Only for menu where positionPopup='dropDown'.*/
     iconDropClose?: any;
     onClick?: (e: InstanceType<typeof MenuItem>) => void;
-    onVisible?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
     /**css class submenu panel. default:'popup-123'.*/
     popupClassName?: string;
-    popupStyle?: React.CSSProperties | undefined;
     /**Position of the sub menu panel, can take value: ['down', 'top', 'downLeft', 'downRight', 'topRight', 'topLeft', 'dropDown','middleLeft','middleLeft3','middleLeft4','middleLeft5','middleRight','middleRight3','middleRight4','middleRight5']. Default:'down'*/
     positionPopup: 'down' | 'top' | 'downLeft' | 'downRight' | 'topRight' | 'topLeft' | 'dropDown' | 'middleLeft' | 'middleLeft3' | 'middleLeft4' | 'middleLeft5' | 'middleRight' | 'middleRight3' | 'middleRight4' | 'middleRight5';
     tabIndex?: number;
     title?: string;
     tag?: any;
     url?: string;
-    onMouseDown?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseDownCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseEnter?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseLeave?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseOut?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseOutCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseOver?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseOverCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseUp?: MouseEventHandler<HTMLDivElement> | undefined;
-    onMouseUpCapture?: MouseEventHandler<HTMLDivElement> | undefined;
 }
 
 interface MyState {
@@ -78,6 +65,7 @@ interface MyState {
     url?: string;
     tag: any;
 }
+declare function CloseMenu(callback?: () => void): void;
 declare const MenuItem: {
     new (props: Readonly<MyProps>): {
         readonly mRefMenu: React.RefObject<HTMLDivElement>;
@@ -85,14 +73,14 @@ declare const MenuItem: {
         readonly mRefPopup: React.RefObject<HTMLDivElement>;
         readonly onClick?: ((e: InstanceType<typeof MenuItem>) => void) | undefined;
         readonly id: string;
+        stateDropMenu: boolean;
         _MyMenu: boolean;
-        popUpHeight: number | undefined;
         /**
          * HTMLDivElement menu
          */
         readonly menu: HTMLDivElement | null;
         /**
-         * HTMLDivElement popUp
+         * HTMLDivElement poopUp
          */
         readonly popUp: HTMLDivElement | null;
         /**
@@ -103,7 +91,7 @@ declare const MenuItem: {
         _validateResizeRight(l: number): void;
         _validateResizeLeft(): void;
         _visibilityPane(resizeWindows: any): void;
-        _click(e: React.MouseEvent): void;
+        _click(e: Event): void;
         _moveMenu(): void;
         _movePopUp(): void;
         componentWillUnmount(): void;
@@ -169,14 +157,8 @@ declare const MenuItem: {
         componentWillUpdate?(nextProps: Readonly<MyProps>, nextState: Readonly<MyState>, nextContext: any): void;
         UNSAFE_componentWillUpdate?(nextProps: Readonly<MyProps>, nextState: Readonly<MyState>, nextContext: any): void;
     };
-    /**
-     * Close all open menu
-     * @param callback
-     * @constructor
-     */
-    CloseMenu(callback?: () => void): void;
     defaultProps: MyProps;
     contextType?: React.Context<any> | undefined;
 };
 
-export { MenuItem };
+export { CloseMenu, MenuItem };

@@ -46,8 +46,8 @@ function buildContent(param: ParamBuildContent): ReactElement | undefined {
         return (
 
             <div className='box-123'>
-                <div className='content-123-left-10'>{param.contentLeft}</div>
-                <div className='content-123-center-90 t-over'>{param.contentCenter}</div>
+                <div className='content-123-left-15'>{param.contentLeft}</div>
+                <div className='content-123-center-85 t-over'>{param.contentCenter}</div>
             </div>
 
         )
@@ -56,9 +56,9 @@ function buildContent(param: ParamBuildContent): ReactElement | undefined {
         return (
 
             <div className='box-123'>
-                <div className='content-123-left-10'>{param.contentLeft}</div>
-                <div className='content-123-center-80 t-over'>{param.contentCenter}</div>
-                <div className='content-123-right-10'>{param.contentRight}</div>
+                <div className='content-123-left-15'>{param.contentLeft}</div>
+                <div className='content-123-center-70 t-over'>{param.contentCenter}</div>
+                <div className='content-123-right-15'>{param.contentRight}</div>
             </div>
 
         )
@@ -67,8 +67,8 @@ function buildContent(param: ParamBuildContent): ReactElement | undefined {
         return (
 
             <div className='box-123'>
-                <div className='  content-123-center-90 t-over'>{param.contentCenter}</div>
-                <div className='content-123-right-10'>{param.contentRight}</div>
+                <div className='  content-123-center-85 t-over'>{param.contentCenter}</div>
+                <div className='content-123-right-15'>{param.contentRight}</div>
 
             </div>
         )

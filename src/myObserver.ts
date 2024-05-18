@@ -1,29 +1,27 @@
 import {MenuItem} from "./menu_item";
 
 interface TypeObserver{
-    id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement,isDrop:boolean
+    id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement
 }
 export class ObserverItem {
 
-    public id: string;
-    public element: HTMLElement;
-    public idRoot: string;
-    public elementMenu: HTMLElement
-    public isDrop:boolean;
+    private id: string;
+    private element: HTMLElement;
+    private idRoot: string;
+    private elementMenu: HTMLElement
 
     constructor(param:TypeObserver) {
         this.id = param.id;
         this.element = param.element;
         this.idRoot = param.idRoot;
         this.elementMenu = param.elementMenu;
-        this.isDrop=param.isDrop;
 
     }
 }
 
 class MyObserver {
     private root?: string;
-    private listItem: Array<ObserverItem>;
+    private listItem: Array<any>;
     private lastActionMoveId: string | undefined;
     private lastActionAddId: string | undefined;
     public classRoot: string;
@@ -66,7 +64,7 @@ class MyObserver {
         }
     }
 
-    _innerValue(o: ObserverItem) {
+    _innerValue(o: any) {
         if (this.classRoot) {
             o.elementMenu.classList.remove(this.classRoot)
         }
@@ -77,13 +75,10 @@ class MyObserver {
     }
 
     ClickSelect(e:InstanceType<typeof MenuItem> , funClick: any) {
-
-       this.actionInvisible()
-        // this.listItem.forEach(a => {
-        //     this._innerValue(a)
-        // })
-        //  this._innerClearState()
-
+        this.listItem.forEach(a => {
+            this._innerValue(a)
+        })
+        this._innerClearState()
         if (funClick) {
             funClick(e)
         }
@@ -106,7 +101,7 @@ class MyObserver {
         return res;
     }
 
-    MoveMenu(observerItem: ObserverItem, action: any) {
+    MoveMenu(observerItem: any, action: any) {
 
         if (this.lastActionMoveId === observerItem.id) return;
         const tempListRoot: any[] = [];
@@ -121,13 +116,11 @@ class MyObserver {
             }
         })
 
-       this.actionInvisible()
+        this.listItem.forEach(a => {
+            this._innerValue(a)
+        })
 
-        // this.listItem.forEach(a => {
-        //     this._innerValue(a)
-        // })
-
-        //this._innerClearState()
+        this._innerClearState()
         tempListRoot.forEach(e => {
             this._innerAdd(e);
         })
@@ -137,27 +130,12 @@ class MyObserver {
         }
 
     }
-    actionInvisible(){
-        let run=false;
-        for (let i = 0; i < this.listItem.length; i++) {
-            if(this.listItem[0].isDrop){
-                run=true
-                i++; continue;
-            }
-            this._innerValue(this.listItem[i])
-
-        }
-        this._innerClearState()
-    }
 
     clearClick(callback?:()=>void) {
-
-        this.actionInvisible()
-        // this.listItem.forEach(a => {
-        //     this._innerValue(a)
-        // })
-        //
-        // this._innerClearState()
+        this.listItem.forEach(a => {
+            this._innerValue(a)
+        })
+        this._innerClearState()
         if (callback){
             callback()
         }
