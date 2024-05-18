@@ -61,7 +61,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "\n:root{\n    --hover: rgb(230, 230, 228);\n    --root-selectr: rgb(220, 220, 218);\n\n}\n\n/* styles menu core*/\n.menu-123-item {\n    height: 30px;\n    width: 150px;\n    cursor: pointer;\n}\n.menu-123-item:hover{\n    background: var(--hover);\n}\n.menu-123-item:active{\n    background: var(--hover);\n}\n/*style disabled menu*/\ndiv[disabled]\n{\n    pointer-events: none;\n    opacity: 0.5;\n}\n/* override text */\n.t-over{\n    white-space:nowrap;\n    overflow:hidden;\n    text-overflow:ellipsis;\n}\n/*style panel popup submenu*/\n.popup-123{\n    border: 1px solid #d6d6d6;\n    width: min-content;\n    background: white;\n    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;\n}\n\n.container-123 {\n    height: 100%;\n    position: relative;\n}\n\n/*contents*/\n.content-123-left-15{\n    text-align: center;\n    min-width: fit-content;\n    width: 15%;\n}\n.content-123-center-70{\n    width: 70%;\n}\n.content-123-right-15{\n    text-align: center;\n    min-width: fit-content;\n    width: 15%;\n}\n.content-123-center-100{\n width: 100%;\n}\n.content-123-center-85{\n    width: 85%;\n}\n.content-123-left-100{\n}\n\n.content-123-right-100{\n}\n/*contents*/\n\n\n\n\n.vertical-center-123 {\n    width: 100%;\n    display: flex;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    -ms-transform: translateY(-50%);\n    transform: translateY(-50%);\n}\n/*usage only left or right container content  */\n.center-icon-123 {\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -ms-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n}\n/*background selected root menu */\n.root-123-selected{\n    background: var(--root-selectr);\n}\n/*background selected not root menu */\n.item-123-selected{\n    background: var(--hover);\n}\n\n.box-123 {\n    display: flex;\n    height: 100%;\n    align-content: space-around;\n    align-items: center;\n    flex-direction:row;\n    justify-content: center;\n}\n/*background menu dropDow*/\n.drop-123-open{\n    background: #c5c3c3;\n}\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\n{\n    text-decoration: none;\n    color: black;\n}\n\n";
+var css_248z = "\n:root{\n    --hover: rgb(230, 230, 228);\n    --root-selectr: rgb(220, 220, 218);\n\n}\n\n/* styles menu core*/\n.menu-123-item {\n    height: 30px;\n    width: 150px;\n    cursor: pointer;\n}\n.menu-123-item:hover{\n    background: var(--hover);\n}\n.menu-123-item:active{\n    background: var(--root-selectr);\n}\n/*style disabled menu*/\ndiv[disabled]\n{\n    pointer-events: none;\n    opacity: 0.5;\n}\n/* override text */\n.t-over{\n    white-space:nowrap;\n    overflow:hidden;\n    text-overflow:ellipsis;\n}\n/*style panel popup submenu*/\n.popup-123{\n    border: 1px solid #d6d6d6;\n    width: min-content;\n    background: white;\n    box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;\n}\n\n.container-123 {\n    height: 100%;\n    position: relative;\n}\n\n/*contents*/\n.content-123-left-15{\n    text-align: center;\n    min-width: fit-content;\n    width: 15%;\n}\n.content-123-center-70{\n    width: 70%;\n}\n.content-123-right-15{\n    text-align: center;\n    min-width: fit-content;\n    width: 15%;\n}\n.content-123-center-100{\n width: 100%;\n}\n.content-123-center-85{\n    width: 85%;\n}\n.content-123-left-100{\n}\n\n.content-123-right-100{\n}\n/*contents*/\n\n\n\n\n.vertical-center-123 {\n    width: 100%;\n    display: flex;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    -ms-transform: translateY(-50%);\n    transform: translateY(-50%);\n}\n/*usage only left or right container content  */\n.center-icon-123 {\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -ms-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n}\n/*background selected root menu */\n.root-123-selected{\n    background: var(--root-selectr);\n}\n/*background selected not root menu */\n.item-123-selected{\n    background: var(--hover);\n}\n\n.box-123 {\n    display: flex;\n    height: 100%;\n    align-content: space-around;\n    align-items: center;\n    flex-direction:row;\n    justify-content: center;\n}\n/*background menu dropDow*/\n.drop-123-open{\n    background: #c5c3c3;\n}\na[data-wrapper]:hover, a[data-wrapper]:visited, a[data-wrapper]:link, a[data-wrapper]:active\n{\n    text-decoration: none;\n    color: black;\n}\n\n";
 styleInject(css_248z);
 
 function getDefaultExportFromCjs (x) {
@@ -2515,11 +2515,7 @@ window.addEventListener('resize', function () {
     });
 }, true);
 
-var _a;
 var MyRootContext = React.createContext('superRoot');
-function CloseMenu(callback) {
-    MyHub.hub.clearClick(callback);
-}
 var MyHub = {
     hub: InstanceHub
 };
@@ -2531,397 +2527,403 @@ var MyHub = {
 document.addEventListener("click", function () {
     MyHub.hub.clearClick();
 });
-var MenuItem = (_a = /** @class */ (function (_super) {
-        __extends(class_1, _super);
-        function class_1(props) {
-            var _this = _super.call(this, props) || this;
-            _this.id = v4();
-            _this.mRefMenu = React.createRef();
-            _this.mRefWrapper = React.createRef();
-            _this.mRefPopup = React.createRef();
-            _this.onClick = _this.props.onClick;
-            _this.stateDropMenu = false;
-            _this._MyMenu = _this.props.behavior === "move";
-            _this.state =
-                {
-                    disabled: _this.props.disabled,
-                    dropOpen: false,
-                    content: {
-                        contentLeft: _this.props.contentLeft,
-                        content: _this.props.content,
-                        contentRight: _this.props.contentRight
-                    },
-                    url: _this.props.url,
-                    tag: _this.props.tag
-                };
-            _this._moveMenu = _this._moveMenu.bind(_this);
-            _this._click = _this._click.bind(_this);
-            return _this;
+var MenuItem = /** @class */ (function (_super) {
+    __extends(MenuItem, _super);
+    function MenuItem(props) {
+        var _this = _super.call(this, props) || this;
+        _this.id = v4();
+        _this.mRefMenu = React.createRef();
+        _this.mRefWrapper = React.createRef();
+        _this.mRefPopup = React.createRef();
+        _this.onClick = _this.props.onClick;
+        _this.stateDropMenu = false;
+        _this._MyMenu = _this.props.behavior === "move";
+        _this.state =
+            {
+                disabled: _this.props.disabled,
+                dropOpen: false,
+                content: {
+                    contentLeft: _this.props.contentLeft,
+                    content: _this.props.content,
+                    contentRight: _this.props.contentRight
+                },
+                url: _this.props.url,
+                tag: _this.props.tag
+            };
+        _this._moveMenu = _this._moveMenu.bind(_this);
+        _this._click = _this._click.bind(_this);
+        return _this;
+    }
+    /**
+     * Closes the menu chain
+     * @param callback call after execute
+     * @constructor
+     */
+    MenuItem.CloseMenu = function (callback) {
+        MyHub.hub.clearClick(callback);
+    };
+    Object.defineProperty(MenuItem.prototype, "menu", {
+        /**
+         * HTMLDivElement menu
+         */
+        get: function () {
+            return this.mRefMenu.current;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MenuItem.prototype, "popUp", {
+        /**
+         * HTMLDivElement poopUp
+         */
+        get: function () {
+            return this.mRefPopup.current;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MenuItem.prototype, "wrapper", {
+        /**
+         * HTMLAnchorElement wrapper menu
+         */
+        get: function () {
+            return this.mRefWrapper.current;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    MenuItem.prototype._resizeWindows = function () {
+        if (this.mRefPopup.current.style.visibility === "visible") {
+            this._visibilityPane(true);
         }
-        Object.defineProperty(class_1.prototype, "menu", {
-            /**
-             * HTMLDivElement menu
-             */
-            get: function () {
-                return this.mRefMenu.current;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "popUp", {
-            /**
-             * HTMLDivElement poopUp
-             */
-            get: function () {
-                return this.mRefPopup.current;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "wrapper", {
-            /**
-             * HTMLAnchorElement wrapper menu
-             */
-            get: function () {
-                return this.mRefWrapper.current;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        class_1.prototype._resizeWindows = function () {
-            if (this.mRefPopup.current.style.visibility === "visible") {
-                this._visibilityPane(true);
-            }
-        };
-        class_1.prototype._validateResizeRight = function (l) {
-            var width = window.innerWidth;
-            var rect = this.mRefPopup.current.getBoundingClientRect();
-            var res = width - (rect.left + this.mRefPopup.current.offsetWidth);
-            if (res < 0) {
-                var lt = l + res;
-                this.mRefPopup.current.style.left = "".concat(lt, "px");
-            }
-        };
-        class_1.prototype._validateResizeLeft = function () {
-            var rect = this.mRefPopup.current.getBoundingClientRect();
-            var res = rect.left; //-this.mRefPopup.current.offsetWidth
-            if (res < 0) {
-                this.mRefPopup.current.style.left = "0px";
-            }
-        };
-        class_1.prototype._visibilityPane = function (resizeWindows) {
-            if (!resizeWindows) {
-                if (!this.props.children)
-                    return;
-                if (this.mRefPopup.current.style.visibility === "visible")
-                    return;
-            }
-            var MENU = this.mRefMenu.current;
-            var POPUP = this.mRefPopup.current;
-            switch (this.props.positionPopup) {
-                case "dropDown": {
-                    break;
-                }
-                case 'down': {
-                    // @ts-ignore
-                    var y = MENU.offsetTop + MENU.offsetHeight;
-                    // @ts-ignore
-                    this.mRefPopup.current.style.top = "".concat(y, "px");
-                    // @ts-ignore
-                    this.mRefPopup.current.style.left = "".concat(MENU.offsetLeft, "px");
-                    break;
-                }
-                case 'top': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight;
-                    POPUP.style.top = "".concat(y, "px");
-                    POPUP.style.left = "".concat(MENU.offsetLeft, "px");
-                    break;
-                }
-                case 'middleRight': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 2;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft + MENU.offsetWidth - 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeRight(l);
-                    break;
-                }
-                case 'middleRight3': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 3;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft + MENU.offsetWidth - 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeRight(l);
-                    break;
-                }
-                case 'middleRight4': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 4;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft + MENU.offsetWidth - 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeRight(l);
-                    break;
-                }
-                case 'middleRight5': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 6;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft + MENU.offsetWidth - 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeRight(l);
-                    break;
-                }
-                case 'downRight': {
-                    var y = MENU.offsetTop + 5;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft + MENU.offsetWidth - 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeRight(l);
-                    break;
-                }
-                case 'topRight': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight + MENU.offsetHeight - 5;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft + MENU.offsetWidth - 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeRight(l);
-                    break;
-                }
-                case 'middleLeft': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 2;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeLeft();
-                    break;
-                }
-                case 'middleLeft3': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 3;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeLeft();
-                    break;
-                }
-                case 'middleLeft4': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 4;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeLeft();
-                    break;
-                }
-                case 'middleLeft5': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight / 6;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeLeft();
-                    break;
-                }
-                case 'downLeft': {
-                    var y = MENU.offsetTop + 5;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    this._validateResizeLeft();
-                    break;
-                }
-                case 'topLeft': {
-                    var y = MENU.offsetTop - POPUP.offsetHeight + MENU.offsetHeight - 5;
-                    POPUP.style.top = "".concat(y, "px");
-                    var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
-                    POPUP.style.left = "".concat(l, "px");
-                    break;
-                }
-            }
-            if (this.props.children) {
-                MyHub.hub.Add(new ObserverItem({ id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU }));
-                POPUP.style.visibility = "visible";
-                POPUP.style.display = "block";
-            }
-        };
-        class_1.prototype._click = function (e) {
-            e.stopPropagation();
-            if (this.props.positionPopup === 'dropDown') {
-                if (!this.state.dropOpen) {
-                    this.open();
-                }
-                else if (this.state.dropOpen === true) {
-                    this.close();
-                }
+    };
+    MenuItem.prototype._validateResizeRight = function (l) {
+        var width = window.innerWidth;
+        var rect = this.mRefPopup.current.getBoundingClientRect();
+        var res = width - (rect.left + this.mRefPopup.current.offsetWidth);
+        if (res < 0) {
+            var lt = l + res;
+            this.mRefPopup.current.style.left = "".concat(lt, "px");
+        }
+    };
+    MenuItem.prototype._validateResizeLeft = function () {
+        var rect = this.mRefPopup.current.getBoundingClientRect();
+        var res = rect.left; //-this.mRefPopup.current.offsetWidth
+        if (res < 0) {
+            this.mRefPopup.current.style.left = "0px";
+        }
+    };
+    MenuItem.prototype._visibilityPane = function (resizeWindows) {
+        if (!resizeWindows) {
+            if (!this.props.children)
                 return;
-            }
-            if (reactExports.Children.count(this.props.children) === 0) {
-                MyHub.hub.ClickSelect(this, this.onClick);
+            if (this.mRefPopup.current.style.visibility === "visible")
                 return;
+        }
+        var MENU = this.mRefMenu.current;
+        var POPUP = this.mRefPopup.current;
+        switch (this.props.positionPopup) {
+            case "dropDown": {
+                break;
             }
-            this._MyMenu = true;
-            this._visibilityPane(undefined);
-        };
-        class_1.prototype._moveMenu = function () {
-            var myThis = this;
-            function inner() {
-                if (myThis._MyMenu) {
-                    myThis._visibilityPane(undefined);
-                }
-            }
-            MyHub.hub.MoveMenu(new ObserverItem({
-                id: this.id,
-                element: this.mRefPopup.current,
-                idRoot: this.context,
-                elementMenu: this.mRefMenu.current
-            }), inner);
-        };
-        class_1.prototype._movePopUp = function () {
-            this.mRefPopup.current.style.visibility = "visible";
-        };
-        class_1.prototype.componentWillUnmount = function () {
-            MapMenu.delete(this.id);
-        };
-        class_1.prototype.componentDidMount = function () {
-            this.mRefPopup.current.style.display = "block";
-            this.mRefPopup.current.style.position = 'absolute';
-            this.mRefPopup.current.style.visibility = 'hidden';
-            this.mRefPopup.current.style.zIndex = String(2);
-            this.mRefMenu.current.style.display = 'block';
-            MapMenu.set(this.id, this);
-        };
-        /**
-         * Change show
-         * @constructor
-         * @param  {boolean} value true-show, false-not show
-         */
-        class_1.prototype.setShow = function (value) {
-            if (!value) {
-                this.mRefWrapper.current.style.display = "none";
-            }
-            if (value) {
-                this.mRefWrapper.current.style.display = "inline";
-            }
-        };
-        /**
-         *
-         * @function
-         * Change disabled
-         * @param  {boolean} value true-disable, false- not disable
-         */
-        class_1.prototype.setDisabled = function (value) {
-            if (value) {
-                this.mRefWrapper.current.style.cursor = 'not-allowed';
-            }
-            else {
-                this.mRefWrapper.current.style.cursor = 'default';
-            }
-            var s = Object.assign({}, this.state);
-            // @ts-ignore
-            s.disabled = value;
-            this.setState(s);
-        };
-        /**
-         * Open menu
-         * @function
-         */
-        class_1.prototype.open = function () {
-            if (this.props.children) {
-                this.stateDropMenu = true;
-                this.mRefMenu.current.classList.add('drop-123-open');
-                this.mRefPopup.current.style.position = 'relative';
-                this.mRefPopup.current.style.visibility = "visible";
-                var s = Object.assign({}, this.state);
+            case 'down': {
                 // @ts-ignore
-                s.dropOpen = true;
-                this.setState(s);
-                if (this.props.onClick) {
-                    this.props.onClick(this);
-                }
+                var y = MENU.offsetTop + MENU.offsetHeight;
+                // @ts-ignore
+                this.mRefPopup.current.style.top = "".concat(y, "px");
+                // @ts-ignore
+                this.mRefPopup.current.style.left = "".concat(MENU.offsetLeft, "px");
+                break;
             }
-        };
-        /**
-         * CloseMenu
-         * @function
-         */
-        class_1.prototype.close = function () {
-            this.stateDropMenu = false;
-            this.mRefMenu.current.classList.remove('drop-123-open');
-            this.mRefPopup.current.style.position = 'absolute';
-            this.mRefPopup.current.style.visibility = "hidden";
+            case 'top': {
+                var y = MENU.offsetTop - POPUP.offsetHeight;
+                POPUP.style.top = "".concat(y, "px");
+                POPUP.style.left = "".concat(MENU.offsetLeft, "px");
+                break;
+            }
+            case 'middleRight': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 2;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft + MENU.offsetWidth - 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeRight(l);
+                break;
+            }
+            case 'middleRight3': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 3;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft + MENU.offsetWidth - 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeRight(l);
+                break;
+            }
+            case 'middleRight4': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 4;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft + MENU.offsetWidth - 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeRight(l);
+                break;
+            }
+            case 'middleRight5': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 6;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft + MENU.offsetWidth - 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeRight(l);
+                break;
+            }
+            case 'downRight': {
+                var y = MENU.offsetTop + 5;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft + MENU.offsetWidth - 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeRight(l);
+                break;
+            }
+            case 'topRight': {
+                var y = MENU.offsetTop - POPUP.offsetHeight + MENU.offsetHeight - 5;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft + MENU.offsetWidth - 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeRight(l);
+                break;
+            }
+            case 'middleLeft': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 2;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeLeft();
+                break;
+            }
+            case 'middleLeft3': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 3;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeLeft();
+                break;
+            }
+            case 'middleLeft4': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 4;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeLeft();
+                break;
+            }
+            case 'middleLeft5': {
+                var y = MENU.offsetTop - POPUP.offsetHeight / 6;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeLeft();
+                break;
+            }
+            case 'downLeft': {
+                var y = MENU.offsetTop + 5;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
+                POPUP.style.left = "".concat(l, "px");
+                this._validateResizeLeft();
+                break;
+            }
+            case 'topLeft': {
+                var y = MENU.offsetTop - POPUP.offsetHeight + MENU.offsetHeight - 5;
+                POPUP.style.top = "".concat(y, "px");
+                var l = MENU.offsetLeft - POPUP.offsetWidth + 5;
+                POPUP.style.left = "".concat(l, "px");
+                break;
+            }
+        }
+        if (this.props.children) {
+            MyHub.hub.Add(new ObserverItem({ id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU }));
+            POPUP.style.visibility = "visible";
+            POPUP.style.display = "block";
+        }
+    };
+    MenuItem.prototype._click = function (e) {
+        e.stopPropagation();
+        if (this.props.positionPopup === 'dropDown') {
+            if (!this.state.dropOpen) {
+                this.open();
+            }
+            else if (this.state.dropOpen === true) {
+                this.close();
+            }
+            return;
+        }
+        if (reactExports.Children.count(this.props.children) === 0) {
+            MyHub.hub.ClickSelect(this, this.onClick);
+            return;
+        }
+        this._MyMenu = true;
+        this._visibilityPane(undefined);
+    };
+    MenuItem.prototype._moveMenu = function () {
+        var myThis = this;
+        function inner() {
+            if (myThis._MyMenu) {
+                myThis._visibilityPane(undefined);
+            }
+        }
+        MyHub.hub.MoveMenu(new ObserverItem({
+            id: this.id,
+            element: this.mRefPopup.current,
+            idRoot: this.context,
+            elementMenu: this.mRefMenu.current
+        }), inner);
+    };
+    MenuItem.prototype._movePopUp = function () {
+        this.mRefPopup.current.style.visibility = "visible";
+    };
+    MenuItem.prototype.componentWillUnmount = function () {
+        MapMenu.delete(this.id);
+    };
+    MenuItem.prototype.componentDidMount = function () {
+        this.mRefPopup.current.style.display = "block";
+        this.mRefPopup.current.style.position = 'absolute';
+        this.mRefPopup.current.style.visibility = 'hidden';
+        this.mRefPopup.current.style.zIndex = String(2);
+        this.mRefMenu.current.style.display = 'block';
+        MapMenu.set(this.id, this);
+    };
+    /**
+     * Change show
+     * @constructor
+     * @param  {boolean} value true-show, false-not show
+     */
+    MenuItem.prototype.setShow = function (value) {
+        if (!value) {
+            this.mRefWrapper.current.style.display = "none";
+        }
+        if (value) {
+            this.mRefWrapper.current.style.display = "inline";
+        }
+    };
+    /**
+     *
+     * @function
+     * Change disabled
+     * @param  {boolean} value true-disable, false- not disable
+     */
+    MenuItem.prototype.setDisabled = function (value) {
+        if (value) {
+            this.mRefWrapper.current.style.cursor = 'not-allowed';
+        }
+        else {
+            this.mRefWrapper.current.style.cursor = 'default';
+        }
+        var s = Object.assign({}, this.state);
+        // @ts-ignore
+        s.disabled = value;
+        this.setState(s);
+    };
+    /**
+     * Open menu
+     * @function
+     */
+    MenuItem.prototype.open = function () {
+        if (this.props.children) {
+            this.stateDropMenu = true;
+            this.mRefMenu.current.classList.add('drop-123-open');
+            this.mRefPopup.current.style.position = 'relative';
+            this.mRefPopup.current.style.visibility = "visible";
             var s = Object.assign({}, this.state);
             // @ts-ignore
-            s.dropOpen = false;
+            s.dropOpen = true;
             this.setState(s);
             if (this.props.onClick) {
                 this.props.onClick(this);
             }
+        }
+    };
+    /**
+     * CloseMenu
+     * @function
+     */
+    MenuItem.prototype.close = function () {
+        this.stateDropMenu = false;
+        this.mRefMenu.current.classList.remove('drop-123-open');
+        this.mRefPopup.current.style.position = 'absolute';
+        this.mRefPopup.current.style.visibility = "hidden";
+        var s = Object.assign({}, this.state);
+        // @ts-ignore
+        s.dropOpen = false;
+        this.setState(s);
+        if (this.props.onClick) {
+            this.props.onClick(this);
+        }
+    };
+    /**
+     * Change contents
+     * @param  {any} contentLeft
+     * @param {any} content
+     * @param  {any} contentRich
+     */
+    MenuItem.prototype.setContent = function (contentLeft, content, contentRich) {
+        var s = Object.assign({}, this.state);
+        // @ts-ignore
+        s.content = {
+            contentLeft: contentLeft,
+            content: content,
+            contentRight: contentRich
         };
-        /**
-         * Change contents
-         * @param  {any} contentLeft
-         * @param {any} content
-         * @param  {any} contentRich
-         */
-        class_1.prototype.setContent = function (contentLeft, content, contentRich) {
-            var s = Object.assign({}, this.state);
-            // @ts-ignore
-            s.content = {
-                contentLeft: contentLeft,
-                content: content,
-                contentRight: contentRich
-            };
-            this.setState(s);
-        };
-        /**
-         * Change url
-         * @param {string} url
-         */
-        class_1.prototype.setUrl = function (url) {
-            var s = Object.assign({}, this.state);
-            // @ts-ignore
-            s.url = url;
-            this.setState(s);
-        };
-        /**
-         * Change tag
-         * @param  {any} tag
-         */
-        class_1.prototype.setTag = function (tag) {
-            var s = Object.assign({}, this.state);
-            // @ts-ignore
-            s.tag = tag;
-            this.setState(s);
-        };
-        class_1.prototype._getUrl = function () {
-            if (this.props.positionPopup === 'dropDown') {
-                if (this.state.url) {
-                    return this.state.url + "&state=" + this.stateDropMenu;
-                }
+        this.setState(s);
+    };
+    /**
+     * Change url
+     * @param {string} url
+     */
+    MenuItem.prototype.setUrl = function (url) {
+        var s = Object.assign({}, this.state);
+        // @ts-ignore
+        s.url = url;
+        this.setState(s);
+    };
+    /**
+     * Change tag
+     * @param  {any} tag
+     */
+    MenuItem.prototype.setTag = function (tag) {
+        var s = Object.assign({}, this.state);
+        // @ts-ignore
+        s.tag = tag;
+        this.setState(s);
+    };
+    MenuItem.prototype._getUrl = function () {
+        if (this.props.positionPopup === 'dropDown') {
+            if (this.state.url) {
+                return this.state.url + "&state=" + this.stateDropMenu;
             }
-            else {
-                return this.state.url;
-            }
-        };
-        class_1.prototype.render = function () {
-            return (React.createElement("object", null,
-                React.createElement("a", { href: this._getUrl(), "data-wrapper": 1, ref: this.mRefWrapper },
-                    React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, 
-                        // @ts-ignore
-                        onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, 
-                        // @ts-ignore
-                        disabled: this.state.disabled, className: this.props.className }, this.props.buildContent({
-                        contentLeft: this.state.content.contentLeft,
-                        contentCenter: this.state.content.content,
-                        contentRight: this.state.content.contentRight,
-                        iconDropOpen: this.props.iconDropOpen,
-                        iconDropClose: this.props.iconDropClose,
-                        isOpenDrop: this.state.dropOpen,
-                        id: this.props.id,
-                        tag: this.state.tag
-                    })),
-                    React.createElement("div", { "data-memu-poopup": this.state.tag, 
-                        // @ts-ignore
-                        disabled: this.state.disabled, onMouseMove: this._movePopUp.bind(this), ref: this.mRefPopup, className: this.props.popupClassName }, this.props.children === undefined ? (React.createElement("div", null)) : (React.createElement(MyRootContext.Provider, { value: this.id }, this.props.children))))));
-        };
-        return class_1;
-    }(reactExports.Component)),
-    _a.defaultProps = {
+        }
+        else {
+            return this.state.url;
+        }
+    };
+    MenuItem.prototype.render = function () {
+        return (React.createElement("object", null,
+            React.createElement("a", { href: this._getUrl(), "data-wrapper": 1, ref: this.mRefWrapper },
+                React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, 
+                    // @ts-ignore
+                    onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, 
+                    // @ts-ignore
+                    disabled: this.state.disabled, className: this.props.className }, this.props.buildContent({
+                    contentLeft: this.state.content.contentLeft,
+                    contentCenter: this.state.content.content,
+                    contentRight: this.state.content.contentRight,
+                    iconDropOpen: this.props.iconDropOpen,
+                    iconDropClose: this.props.iconDropClose,
+                    isOpenDrop: this.state.dropOpen,
+                    id: this.props.id,
+                    tag: this.state.tag
+                })),
+                React.createElement("div", { "data-memu-poopup": this.state.tag, 
+                    // @ts-ignore
+                    disabled: this.state.disabled, onMouseMove: this._movePopUp.bind(this), ref: this.mRefPopup, className: this.props.popupClassName }, this.props.children === undefined ? (React.createElement("div", null)) : (React.createElement(MyRootContext.Provider, { value: this.id }, this.props.children))))));
+    };
+    MenuItem.defaultProps = {
         url: undefined,
         tag: undefined,
         content: undefined,
@@ -2942,8 +2944,9 @@ var MenuItem = (_a = /** @class */ (function (_super) {
         iconDropClose: undefined,
         iconDropOpen: undefined,
         style: undefined,
-    },
-    _a);
+    };
+    return MenuItem;
+}(reactExports.Component));
 MenuItem.contextType = MyRootContext;
 
-export { CloseMenu, MenuItem };
+export { MenuItem as default };

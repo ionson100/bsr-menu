@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItem } from "./menu_item";
+import MenuItem from "./menu_item";
 export interface ParamBuildContent {
     contentLeft?: any;
     contentCenter?: any;

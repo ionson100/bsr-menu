@@ -23,9 +23,7 @@ interface MyState {
 const MyRootContext = React.createContext<string>('superRoot');
 
 
-export function CloseMenu(callback?: () => void) {
-    MyHub.hub.clearClick(callback)
-}
+
 
 
 const MyHub = {
@@ -45,9 +43,16 @@ document.addEventListener("click", () => {
 });
 
 
-export const MenuItem = class extends Component<MyProps, MyState> implements ResizeAction {
+export default  class MenuItem extends Component<MyProps, MyState> implements ResizeAction {
 
-
+    /**
+     * Closes the menu chain
+     * @param callback call after execute
+     * @constructor
+     */
+    static CloseMenu(callback?: () => void){
+        MyHub.hub.clearClick(callback)
+    }
     static defaultProps: MyProps = {
         url: undefined,
         tag: undefined,

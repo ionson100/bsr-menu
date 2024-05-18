@@ -1,4 +1,4 @@
-import {MenuItem} from "./menu_item";
+import MenuItem from "./menu_item";
 
 interface TypeObserver{
     id: string, element: HTMLElement, idRoot: any, elementMenu: HTMLElement

@@ -15,7 +15,7 @@
     background: var(--hover);
 }
 .menu-123-item:active{
-    background: var(--hover);
+    background: var(--root-selectr);
 }
 /*style disabled menu*/
 div[disabled]

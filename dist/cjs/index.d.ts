@@ -1,1 +1,2 @@
-export { MenuItem, CloseMenu } from './menu_item';
+import MenuItem from "./menu";
+export default MenuItem;
