@@ -46,22 +46,16 @@ div[disabled]
 .content-123-left-15{
     text-align: center;
     width: fit-content;
-    /*width: 15%;*/
 }
-.content-123-center-70{
-    width: 70%;
-}
+
 .content-123-right-15{
     text-align: center;
     width: fit-content;
-    /*width: 15%;*/
 }
 .content-123-center-100{
  width: 100%;
 }
-.content-123-center-85{
-    width: 85%;
-}
+
 .content-123-left-100{
 }
 
