@@ -46,6 +46,7 @@ export interface MyProps {
     iconDropClose?: any,
 
     onClick?: (e:InstanceType<typeof MenuItem>) => void
+    onVisible?: (e:InstanceType<typeof MenuItem>) => void
 
     /**css class submenu panel. default:'popup-123'.*/
     popupClassName?: string,

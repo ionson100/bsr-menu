@@ -75,6 +75,7 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
         iconDropClose: undefined,
         iconDropOpen: undefined,
         style: undefined,
+        onVisible: undefined,
     };
     public readonly mRefMenu: React.RefObject<HTMLDivElement>;
     public readonly mRefWrapper: React.RefObject<HTMLAnchorElement>;
@@ -303,6 +304,9 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
             MyHub.hub.Add(new ObserverItem({id: this.id, element: POPUP, idRoot: this.context, elementMenu: MENU}))
             POPUP.style.visibility = "visible"
             POPUP.style.display = "block"
+            if(this.props.onVisible){
+                this.props.onVisible(this);
+            }
         }
     }
 
@@ -412,6 +416,9 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
             this.setState(s);
             if (this.props.onClick) {
                 this.props.onClick(this)
+            }
+            if(this.props.onVisible){
+                this.props.onVisible(this);
             }
         }
     }
