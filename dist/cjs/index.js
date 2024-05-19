@@ -2365,17 +2365,17 @@ function buildContent(param) {
     if (param.contentLeft && param.contentCenter && !param.contentRight) {
         return (React.createElement("div", { className: 'box-123' },
             React.createElement("div", { className: 'content-123-left-15' }, param.contentLeft),
-            React.createElement("div", { className: 'content-123-center-85 t-over' }, param.contentCenter)));
+            React.createElement("div", { className: 'content-123-center-100 t-over' }, param.contentCenter)));
     }
     if (param.contentLeft && param.contentCenter && param.contentRight) {
         return (React.createElement("div", { className: 'box-123' },
             React.createElement("div", { className: 'content-123-left-15' }, param.contentLeft),
-            React.createElement("div", { className: 'content-123-center-70 t-over' }, param.contentCenter),
+            React.createElement("div", { className: 'content-123-center-100 t-over' }, param.contentCenter),
             React.createElement("div", { className: 'content-123-right-15' }, param.contentRight)));
     }
     if (!param.contentLeft && param.contentCenter && param.contentRight) {
         return (React.createElement("div", { className: 'box-123' },
-            React.createElement("div", { className: '  content-123-center-85 t-over' }, param.contentCenter),
+            React.createElement("div", { className: '  content-123-center-100 t-over' }, param.contentCenter),
             React.createElement("div", { className: 'content-123-right-15' }, param.contentRight)));
     }
     if (param.contentLeft && !param.contentCenter && !param.contentRight) {
