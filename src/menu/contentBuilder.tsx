@@ -37,7 +37,7 @@ function buildContent(param: ParamBuildContent): ReactElement | undefined {
         return (
             <div className='container-123'>
                 <div className='vertical-center-123'>
-                    <div className='content-123-center-100'>{param.contentCenter}</div>
+                    <div className='content-123-center-100 t-over'>{param.contentCenter}</div>
                 </div>
             </div>
         )
@@ -77,7 +77,7 @@ function buildContent(param: ParamBuildContent): ReactElement | undefined {
         return (
             <div className='container-123'>
                 <div className='center-icon-123'>
-                    <div className='content-123-left-100'>{param.contentLeft}</div>
+                    <div className='content-123-left-100 t-over'>{param.contentLeft}</div>
                 </div>
             </div>
         )
@@ -87,7 +87,7 @@ function buildContent(param: ParamBuildContent): ReactElement | undefined {
         return (
             <div className='container-123'>
                 <div className='center-icon-123'>
-                    <div className='content-123-right-100'>{param.contentRight}</div>
+                    <div className='content-123-right-100 t-over'>{param.contentRight}</div>
                 </div>
             </div>
         )
