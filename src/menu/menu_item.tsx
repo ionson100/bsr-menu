@@ -111,6 +111,7 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
             }
         this._moveMenu = this._moveMenu.bind(this)
         this._click = this._click.bind(this)
+        this.keyDownEnter=this.keyDownEnter.bind(this)
 
     }
 
@@ -494,6 +495,11 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
             return this.state.url;
         }
     }
+    keyDownEnter(e:React.KeyboardEvent<HTMLDivElement>){
+        if(e.key==="Enter"&&this.props.children){
+            this.mRefMenu.current!.click()
+        }
+    }
 
 
     render() {
@@ -511,6 +517,7 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
                          title={this.props.title}
                          tabIndex={this.props.tabIndex}
                          data-menu-tag={this.state.tag}
+                         onKeyDown={this.keyDownEnter}
                         // @ts-ignore
                          disabled={this.state.disabled}
                          className={this.props.className}>

@@ -91,6 +91,7 @@ export default class MenuItem extends Component<MyProps, MyState> implements Res
      */
     setTag(tag: any | undefined): void;
     _getUrl(): string | undefined;
+    keyDownEnter(e: React.KeyboardEvent<HTMLDivElement>): void;
     render(): React.JSX.Element;
 }
 export {};

@@ -148,6 +148,7 @@ declare class MenuItem extends Component<MyProps, MyState> implements ResizeActi
      */
     setTag(tag: any | undefined): void;
     _getUrl(): string | undefined;
+    keyDownEnter(e: React.KeyboardEvent<HTMLDivElement>): void;
     render(): React.JSX.Element;
 }
 

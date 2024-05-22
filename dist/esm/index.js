@@ -3145,6 +3145,7 @@ var MenuItem = /** @class */ (function (_super) {
             };
         _this._moveMenu = _this._moveMenu.bind(_this);
         _this._click = _this._click.bind(_this);
+        _this.keyDownEnter = _this.keyDownEnter.bind(_this);
         return _this;
     }
     /**
@@ -3501,12 +3502,17 @@ var MenuItem = /** @class */ (function (_super) {
             return this.state.url;
         }
     };
+    MenuItem.prototype.keyDownEnter = function (e) {
+        if (e.key === "Enter" && this.props.children) {
+            this.mRefMenu.current.click();
+        }
+    };
     MenuItem.prototype.render = function () {
         return (React.createElement("object", null,
             React.createElement("a", { href: this._getUrl(), "data-wrapper": 1, ref: this.mRefWrapper },
                 React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, 
                     // @ts-ignore
-                    onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, 
+                    onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, onKeyDown: this.keyDownEnter, 
                     // @ts-ignore
                     disabled: this.state.disabled, className: this.props.className }, this.props.buildContent({
                     contentLeft: this.state.content.contentLeft,
