@@ -3509,10 +3509,10 @@ var MenuItem = /** @class */ (function (_super) {
     };
     MenuItem.prototype.render = function () {
         return (React.createElement("object", null,
-            React.createElement("a", { href: this._getUrl(), "data-wrapper": 1, ref: this.mRefWrapper },
-                React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, 
+            React.createElement("a", { href: this._getUrl(), "data-wrapper": 1, ref: this.mRefWrapper, title: this.props.title },
+                React.createElement("div", { ref: this.mRefMenu, style: this.props.style, id: this.props.id, role: 'button', 
                     // @ts-ignore
-                    onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, title: this.props.title, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, onKeyDown: this.keyDownEnter, 
+                    onClick: this._click, onMouseMove: this._moveMenu, accessKey: this.props.accessKey, tabIndex: this.props.tabIndex, "data-menu-tag": this.state.tag, onKeyDown: this.keyDownEnter, 
                     // @ts-ignore
                     disabled: this.state.disabled, className: this.props.className }, this.props.buildContent({
                     contentLeft: this.state.content.contentLeft,

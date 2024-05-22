@@ -506,15 +506,15 @@ export default  class MenuItem extends Component<MyProps, MyState> implements Re
 
         return (
             <object>
-                <a href={this._getUrl()} data-wrapper={1} ref={this.mRefWrapper}>
+                <a href={this._getUrl()} data-wrapper={1} ref={this.mRefWrapper}  title={this.props.title}>
                     <div ref={this.mRefMenu}
                          style={this.props.style}
                          id={this.props.id}
+                         role='button'
                         // @ts-ignore
                          onClick={this._click}
                          onMouseMove={this._moveMenu}
                          accessKey={this.props.accessKey}
-                         title={this.props.title}
                          tabIndex={this.props.tabIndex}
                          data-menu-tag={this.state.tag}
                          onKeyDown={this.keyDownEnter}
