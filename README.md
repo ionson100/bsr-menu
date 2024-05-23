@@ -20,7 +20,7 @@ import MenuItem from 'bsr-menu'
 
 class Example extends Component {
   render() {
-      return <MenuItem content='My Nenu' >
+      return <MenuItem content='My Menu' >
                        <MenuItem content='My SubMenu'>
              </MenuItem>
   }
