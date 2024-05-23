@@ -32,6 +32,6 @@ class Example extends Component {
 MIT © [ionson100](https://github.com/ionson100)
 
 
-[Property, Function](https://ionson100.github.io/wwwroot/index.html#mode=bsrmenu&page=bsrmenu&state=true).
+[Props, Function](https://ionson100.github.io/wwwroot/index.html#mode=bsrmenu&page=bsrmenu&state=true).
 
 [Examples, Help pages](https://ionson100.github.io/wwwroot/index.html#mode=bsrmenu&page=1-1).
